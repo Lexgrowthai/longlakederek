@@ -87,8 +87,8 @@
 
     /* ── HERO ── */
     .hero {
-      background: var(--navy);
-      color: white;
+      background: var(--white);
+      color: var(--navy);
       padding: 80px 24px;
     }
     .hero-inner {
@@ -100,8 +100,8 @@
     .hero-btns { justify-content: center; }
     .hero-tag {
       display: inline-block;
-      background: rgba(255,255,255,0.15);
-      color: rgba(255,255,255,0.9);
+      background: #eaf3fb;
+      color: var(--light-blue);
       font-size: 12px;
       font-weight: 600;
       letter-spacing: 1px;
@@ -118,13 +118,13 @@
     }
     .hero p {
       font-size: 16px;
-      color: rgba(255,255,255,0.85);
+      color: var(--muted);
       margin-bottom: 28px;
       max-width: 480px;
     }
     .hero-address {
       font-size: 14px;
-      color: rgba(255,255,255,0.75);
+      color: var(--muted);
       margin-bottom: 28px;
     }
     .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
@@ -142,16 +142,16 @@
     .btn-white:hover { opacity: 0.9; }
     .btn-outline {
       background: transparent;
-      color: white;
+      color: var(--navy);
       padding: 12px 24px;
       border-radius: 6px;
       font-size: 14px;
       font-weight: 700;
-      border: 2px solid rgba(255,255,255,0.5);
+      border: 2px solid var(--navy);
       cursor: pointer;
-      transition: border-color 0.2s;
+      transition: border-color 0.2s, color 0.2s;
     }
-    .btn-outline:hover { border-color: white; }
+    .btn-outline:hover { border-color: var(--light-blue); color: var(--light-blue); }
 
     .hero-image {
       border-radius: 16px;
