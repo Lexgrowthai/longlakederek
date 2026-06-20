@@ -78,7 +78,7 @@
     .dropdown {
       display: none;
       position: absolute;
-      top: calc(100% + 14px);
+      top: 100%;
       left: 50%;
       transform: translateX(-50%);
       background: white;
@@ -87,7 +87,18 @@
       box-shadow: 0 12px 40px rgba(0,0,0,0.12);
       min-width: 220px;
       padding: 8px;
+      padding-top: 18px;
+      margin-top: 0;
       z-index: 200;
+    }
+    .nav-links li::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      height: 18px;
     }
     .dropdown::before {
       content: '';
