@@ -74,7 +74,7 @@
     .nav-links li { position: relative; list-style: none; }
     .nav-links li a { display: flex; align-items: center; gap: 4px; }
     .dropdown-arrow { font-size: 10px; transition: transform 0.2s; }
-    .nav-links li.open .dropdown-arrow { transform: rotate(180deg); }
+    .nav-links li:hover .dropdown-arrow { transform: rotate(180deg); }
     .dropdown {
       display: none;
       position: absolute;
@@ -101,7 +101,7 @@
       border-top: 1px solid var(--border);
       rotate: 45deg;
     }
-    .nav-links li.open .dropdown { display: block; }
+    .nav-links li:hover .dropdown { display: block; }
     .dropdown a {
       display: flex !important;
       align-items: center;
@@ -134,7 +134,7 @@
 
     /* ── HERO ── */
     .hero {
-      background: #eaf5fc;
+      background: #cce8f6;
       color: var(--navy);
       padding: 80px 24px;
     }
@@ -947,25 +947,6 @@
       btn.disabled = false;
       e.target.reset();
     }, 4000);
-  }
-
-  // Click-toggle dropdown
-  const servicesToggle = document.querySelector('.nav-links a[href="#services"]');
-  const servicesLi = servicesToggle && servicesToggle.closest('li');
-  if (servicesToggle && servicesLi) {
-    servicesToggle.addEventListener('click', e => {
-      e.preventDefault();
-      servicesLi.classList.toggle('open');
-    });
-    document.addEventListener('click', e => {
-      if (!servicesLi.contains(e.target)) {
-        servicesLi.classList.remove('open');
-      }
-    });
-    // Close dropdown when a dropdown item is clicked
-    servicesLi.querySelectorAll('.dropdown a').forEach(a => {
-      a.addEventListener('click', () => servicesLi.classList.remove('open'));
-    });
   }
 
   // Smooth scroll
