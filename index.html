@@ -70,6 +70,53 @@
     .nav-links { display: flex; gap: 28px; font-size: 14px; font-weight: 500; }
     .nav-links a:hover { color: var(--light-blue); }
 
+    /* ── DROPDOWN ── */
+    .nav-links li { position: relative; list-style: none; }
+    .nav-links li a { display: flex; align-items: center; gap: 4px; }
+    .dropdown-arrow { font-size: 10px; transition: transform 0.2s; }
+    .nav-links li:hover .dropdown-arrow { transform: rotate(180deg); }
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: calc(100% + 14px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+      min-width: 220px;
+      padding: 8px;
+      z-index: 200;
+    }
+    .dropdown::before {
+      content: '';
+      position: absolute;
+      top: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 12px; height: 12px;
+      background: white;
+      border-left: 1px solid var(--border);
+      border-top: 1px solid var(--border);
+      rotate: 45deg;
+    }
+    .nav-links li:hover .dropdown { display: block; }
+    .dropdown a {
+      display: flex !important;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text) !important;
+      transition: background 0.15s;
+      white-space: nowrap;
+    }
+    .dropdown a:hover { background: var(--bg); color: var(--light-blue) !important; }
+    .dropdown-icon { font-size: 16px; width: 28px; text-align: center; }
+
     .nav-right { display: flex; align-items: center; gap: 16px; }
     .nav-phone { font-size: 14px; font-weight: 600; color: var(--navy); }
     .btn-primary {
@@ -87,7 +134,7 @@
 
     /* ── HERO ── */
     .hero {
-      background: var(--white);
+      background: #eaf5fc;
       color: var(--navy);
       padding: 80px 24px;
     }
@@ -245,6 +292,9 @@
       text-align: center;
       border: 1px solid var(--border);
       transition: box-shadow 0.2s, transform 0.2s;
+      text-decoration: none;
+      color: inherit;
+      display: block;
     }
     .service-card:hover {
       box-shadow: 0 8px 32px rgba(0,0,0,0.1);
@@ -470,7 +520,19 @@
     <ul class="nav-links">
       <li><a href="#">Home</a></li>
       <li><a href="#about">About</a></li>
-      <li><a href="#services">Services</a></li>
+      <li>
+        <a href="#services">Services <span class="dropdown-arrow">▾</span></a>
+        <div class="dropdown">
+          <a href="services-teeth-cleaning.html"><span class="dropdown-icon">🪥</span> Teeth Cleaning</a>
+          <a href="services-crowns.html"><span class="dropdown-icon">👑</span> Crowns</a>
+          <a href="services-implants.html"><span class="dropdown-icon">🦷</span> Dental Implants</a>
+          <a href="#services"><span class="dropdown-icon">🔬</span> Fillings &amp; Composites</a>
+          <a href="#services"><span class="dropdown-icon">🛡️</span> Mouth Guards</a>
+          <a href="#services"><span class="dropdown-icon">📡</span> Digital X-Rays</a>
+          <a href="#services"><span class="dropdown-icon">🩺</span> Extractions</a>
+          <a href="#services"><span class="dropdown-icon">🚨</span> Emergency Care</a>
+        </div>
+      </li>
       <li><a href="team.html">Team</a></li>
       <li><a href="#testimonials">Testimonials</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -542,21 +604,21 @@
       <p>We offer a full range of dental services tailored to your unique needs and comfort.</p>
     </div>
     <div class="services-grid">
-      <div class="service-card">
+      <a href="services-teeth-cleaning.html" class="service-card">
         <div class="service-emoji">🪥</div>
         <h3>Teeth Cleaning</h3>
         <p>Professional cleaning to remove plaque and prevent gum disease.</p>
-      </div>
-      <div class="service-card">
+      </a>
+      <a href="services-crowns.html" class="service-card">
         <div class="service-emoji">👑</div>
         <h3>Crowns</h3>
         <p>Restore damaged teeth with natural-looking, durable crowns.</p>
-      </div>
-      <div class="service-card">
+      </a>
+      <a href="services-implants.html" class="service-card">
         <div class="service-emoji">🦷</div>
         <h3>Dental Implants</h3>
         <p>Permanent, beautiful tooth replacements that feel and look natural.</p>
-      </div>
+      </a>
       <div class="service-card">
         <div class="service-emoji">💊</div>
         <h3>Dental Supports</h3>
@@ -816,9 +878,9 @@
       <div class="footer-col">
         <h4>Services</h4>
         <ul>
-          <li><a href="#services">Teeth Cleaning</a></li>
-          <li><a href="#services">Dental Implants</a></li>
-          <li><a href="#services">Crowns</a></li>
+          <li><a href="services-teeth-cleaning.html">Teeth Cleaning</a></li>
+          <li><a href="services-implants.html">Dental Implants</a></li>
+          <li><a href="services-crowns.html">Crowns</a></li>
           <li><a href="#services">Teeth Whitening</a></li>
           <li><a href="#services">Emergency Care</a></li>
         </ul>
