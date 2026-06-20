@@ -145,23 +145,30 @@
 
     /* ── HERO ── */
     .hero {
-      background: var(--white);
-      color: var(--navy);
-      padding: 80px 24px;
+      position: relative;
+      background: url("ChatGPT Image Jun 19, 2026, 10_50_17 PM.png") center center / cover no-repeat;
+      color: white;
+      padding: 100px 24px;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(10, 35, 60, 0.62);
     }
     .hero-inner {
-      max-width: 1200px;
+      position: relative;
+      max-width: 800px;
       margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 420px;
-      gap: 60px;
-      align-items: center;
+      text-align: center;
     }
-    .hero-btns { justify-content: flex-start; }
+    .hero p { margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.88); }
+    .hero-address { color: rgba(255,255,255,0.75); }
+    .hero-btns { justify-content: center; }
     .hero-tag {
       display: inline-block;
-      background: #eaf3fb;
-      color: var(--light-blue);
+      background: rgba(255,255,255,0.15);
+      color: white;
       font-size: 12px;
       font-weight: 600;
       letter-spacing: 1px;
@@ -171,6 +178,7 @@
       margin-bottom: 20px;
     }
     .hero h1 {
+      color: white;
       font-size: 48px;
       font-weight: 800;
       line-height: 1.15;
@@ -202,16 +210,16 @@
     .btn-white:hover { opacity: 0.9; }
     .btn-outline {
       background: transparent;
-      color: var(--navy);
+      color: white;
       padding: 12px 24px;
       border-radius: 6px;
       font-size: 14px;
       font-weight: 700;
-      border: 2px solid var(--navy);
+      border: 2px solid rgba(255,255,255,0.7);
       cursor: pointer;
-      transition: border-color 0.2s, color 0.2s;
+      transition: border-color 0.2s, background 0.2s;
     }
-    .btn-outline:hover { border-color: var(--light-blue); color: var(--light-blue); }
+    .btn-outline:hover { border-color: white; background: rgba(255,255,255,0.1); }
 
     .hero-image {
       border-radius: 16px;
@@ -539,10 +547,8 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
-      .hero-inner { grid-template-columns: 1fr; text-align: center; }
+      .hero-inner { text-align: center; }
       .hero-btns { justify-content: center; }
-      .hero p { margin-left: auto; margin-right: auto; }
-      .hero-image { display: none; }
       .stats-inner { grid-template-columns: repeat(2, 1fr); }
       .services-grid { grid-template-columns: repeat(2, 1fr); }
       .comfort-grid { grid-template-columns: repeat(2, 1fr); }
@@ -648,9 +654,6 @@
         </div>
       </div>
 
-    </div>
-    <div class="hero-image">
-      <img src="ChatGPT Image Jun 19, 2026, 10_50_17 PM.png" alt="Happy family with bright smiles" />
     </div>
   </div>
 </section>
