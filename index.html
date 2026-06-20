@@ -214,11 +214,10 @@
     .btn-outline:hover { border-color: var(--light-blue); color: var(--light-blue); }
 
     .hero-image {
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 24px 60px rgba(0,0,0,0.35);
       aspect-ratio: 3/4;
       max-height: 520px;
+      -webkit-mask-image: radial-gradient(ellipse 90% 90% at 50% 40%, black 40%, transparent 100%);
+      mask-image: radial-gradient(ellipse 90% 90% at 50% 40%, black 40%, transparent 100%);
     }
     .hero-image img {
       width: 100%;
