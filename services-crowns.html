@@ -124,6 +124,14 @@
     .footer-col ul li a:hover { color: white; }
     .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; display: flex; justify-content: space-between; font-size: 12px; color: rgba(255,255,255,0.4); }
 
+    /* ── TRUST BAR ── */
+    .trust-bar { background: white; border-bottom: 1px solid var(--border); padding: 0 24px; }
+    .trust-bar-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: center; padding: 24px 0; }
+    .trust-stat { flex: 1; text-align: center; padding: 0 16px; }
+    .trust-stat-number { font-size: 28px; font-weight: 800; color: var(--navy); line-height: 1; margin-bottom: 4px; }
+    .trust-stat-label { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
+    .trust-stat-divider { width: 1px; height: 40px; background: var(--border); flex-shrink: 0; }
+
     @media (max-width: 960px) {
       .content-wrap { grid-template-columns: 1fr; }
       .sidebar { order: -1; }
@@ -170,6 +178,19 @@
   <div class="tag">Restorative Dentistry</div>
   <h1>Dental Crowns</h1>
   <p>Restore strength, function, and beauty to damaged teeth with custom-crafted, natural-looking crowns.</p>
+</div>
+
+<!-- ── TRUST BAR ── -->
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <div class="trust-stat"><div class="trust-stat-number">20+</div><div class="trust-stat-label">Years of Experience</div></div>
+    <div class="trust-stat-divider"></div>
+    <div class="trust-stat"><div class="trust-stat-number">3</div><div class="trust-stat-label">Expert Dentists</div></div>
+    <div class="trust-stat-divider"></div>
+    <div class="trust-stat"><div class="trust-stat-number">12</div><div class="trust-stat-label">Services Offered</div></div>
+    <div class="trust-stat-divider"></div>
+    <div class="trust-stat"><div class="trust-stat-number">✔</div><div class="trust-stat-label">Accepting New Patients</div></div>
+  </div>
 </div>
 
 <div class="content-wrap">
