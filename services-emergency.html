@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Emergency Dental Care | Long Lake Family Dentistry</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0d3b5e;
+      --blue: #1a5f8a;
+      --light-blue: #2980b9;
+      --gold: #c8a84b;
+      --red: #c0392b;
+      --text: #222;
+      --muted: #666;
+      --bg: #f7f9fc;
+      --white: #fff;
+      --border: #dde3ea;
+    }
+
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--white); line-height: 1.7; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    header { background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+    nav { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 14px 24px; }
+    .logo { display: flex; align-items: center; gap: 10px; }
+    .logo-icon { width: 40px; height: 40px; background: var(--navy); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+    .logo-icon svg { width: 24px; height: 24px; fill: white; }
+    .logo-text strong { display: block; font-size: 15px; color: var(--navy); font-weight: 800; }
+    .logo-text span { font-size: 11px; color: var(--muted); letter-spacing: 0.5px; }
+    .nav-links { display: flex; gap: 28px; font-size: 14px; font-weight: 500; list-style: none; }
+    .nav-links a:hover { color: var(--light-blue); }
+    .nav-links a.active { color: var(--light-blue); font-weight: 700; }
+    .btn-primary { background: var(--light-blue); color: white; padding: 10px 20px; border-radius: 6px; font-size: 13px; font-weight: 600; transition: background 0.2s; }
+    .btn-primary:hover { background: var(--navy); }
+
+    .breadcrumb { background: var(--bg); border-bottom: 1px solid var(--border); padding: 12px 24px; }
+    .breadcrumb-inner { max-width: 1200px; margin: 0 auto; font-size: 13px; color: var(--muted); display: flex; align-items: center; gap: 8px; }
+    .breadcrumb-inner a { color: var(--light-blue); }
+    .breadcrumb-inner a:hover { text-decoration: underline; }
+    .breadcrumb-sep { color: var(--border); }
+
+    /* EMERGENCY BANNER - slightly different gradient with red accent */
+    .page-banner { background: linear-gradient(135deg, #3d0c0c 0%, #0d3b5e 100%); color: white; padding: 72px 24px; text-align: center; position: relative; overflow: hidden; }
+    .page-banner::before { content: ''; position: absolute; top: -80px; right: -80px; width: 320px; height: 320px; border-radius: 50%; background: rgba(255,255,255,0.04); }
+    .page-banner::after { content: ''; position: absolute; bottom: -60px; left: -60px; width: 240px; height: 240px; border-radius: 50%; background: rgba(255,255,255,0.04); }
+    .page-banner .tag { display: inline-block; background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.9); font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 5px 16px; border-radius: 20px; margin-bottom: 18px; }
+    .page-banner h1 { font-size: 50px; font-weight: 800; line-height: 1.15; margin-bottom: 14px; }
+    .page-banner p { font-size: 17px; color: rgba(255,255,255,0.8); max-width: 560px; margin: 0 auto; }
+
+    /* EMERGENCY CALLOUT */
+    .emergency-callout {
+      background: #fff3f3;
+      border: 2px solid #e74c3c;
+      border-radius: 14px;
+      padding: 22px 24px;
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      margin-bottom: 32px;
+    }
+    .emergency-callout-icon { font-size: 32px; flex-shrink: 0; line-height: 1; }
+    .emergency-callout h4 { font-size: 16px; font-weight: 800; color: #c0392b; margin-bottom: 4px; }
+    .emergency-callout p { font-size: 14px; color: #555; margin: 0; line-height: 1.6; }
+    .emergency-callout a { color: #c0392b; font-weight: 700; text-decoration: underline; }
+
+    .trust-bar { background: white; border-bottom: 1px solid var(--border); padding: 0 24px; }
+    .trust-bar-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: center; padding: 24px 0; }
+    .trust-stat { flex: 1; text-align: center; padding: 0 16px; }
+    .trust-stat-number { font-size: 28px; font-weight: 800; color: var(--navy); line-height: 1; margin-bottom: 4px; }
+    .trust-stat-label { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
+    .trust-stat-divider { width: 1px; height: 40px; background: var(--border); flex-shrink: 0; }
+
+    .content-wrap { max-width: 1200px; margin: 0 auto; padding: 72px 24px; display: grid; grid-template-columns: 1fr 380px; gap: 64px; align-items: start; }
+
+    .article h2 { font-size: 30px; font-weight: 800; color: var(--navy); margin-bottom: 8px; line-height: 1.25; }
+    .article .gold-bar { width: 48px; height: 4px; background: var(--gold); border-radius: 2px; margin-bottom: 28px; }
+    .article p { font-size: 16px; color: #444; margin-bottom: 22px; line-height: 1.8; }
+    .article h3 { font-size: 20px; font-weight: 700; color: var(--navy); margin: 36px 0 14px; }
+
+    .service-image-block { border-radius: 20px; overflow: hidden; box-shadow: 0 12px 40px rgba(0,0,0,0.12); margin: 36px 0; }
+    .service-image-block img { width: 100%; height: 380px; object-fit: cover; display: block; }
+    .image-caption { background: var(--navy); color: rgba(255,255,255,0.85); font-size: 13px; padding: 12px 18px; text-align: center; }
+
+    /* EMERGENCY TYPES GRID */
+    .emergency-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 8px 0 28px; }
+    .emergency-card { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 18px; }
+    .emergency-card-icon { font-size: 26px; margin-bottom: 10px; }
+    .emergency-card h4 { font-size: 14px; font-weight: 800; color: var(--navy); margin-bottom: 6px; }
+    .emergency-card p { font-size: 13px; color: var(--muted); margin: 0; line-height: 1.5; }
+
+    .benefits-list { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 8px 0 28px; }
+    .benefit-item { display: flex; align-items: flex-start; gap: 12px; background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; }
+    .benefit-icon { width: 32px; height: 32px; background: #ddeef8; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+    .benefit-item p { font-size: 13px; color: var(--text); font-weight: 600; margin: 0; line-height: 1.4; }
+
+    .steps { display: flex; flex-direction: column; gap: 20px; margin: 8px 0 28px; }
+    .step { display: flex; gap: 18px; align-items: flex-start; }
+    .step-num { width: 36px; height: 36px; background: var(--navy); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; flex-shrink: 0; }
+    .step-body h4 { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+    .step-body p { font-size: 14px; color: var(--muted); margin: 0; line-height: 1.6; }
+
+    /* FAQ */
+    .faq-list { display: flex; flex-direction: column; gap: 12px; margin: 8px 0 28px; }
+    .faq-item { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+    .faq-question { display: flex; justify-content: space-between; align-items: center; padding: 18px 20px; font-size: 15px; font-weight: 700; color: var(--navy); cursor: pointer; background: var(--bg); gap: 12px; }
+    .faq-question:hover { background: #e8f0f8; }
+    .faq-icon { font-size: 18px; font-weight: 400; color: var(--light-blue); flex-shrink: 0; transition: transform 0.3s; }
+    .faq-answer { padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.35s ease; font-size: 15px; color: #444; line-height: 1.7; }
+    .faq-item.open .faq-answer { max-height: 300px; padding: 0 20px 18px; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+
+    .sidebar { display: flex; flex-direction: column; gap: 24px; }
+    .sidebar-card { background: white; border: 1px solid var(--border); border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+    .sidebar-card-header { background: var(--navy); color: white; padding: 18px 22px; font-size: 15px; font-weight: 700; }
+    .sidebar-card-header.red { background: var(--red); }
+    .sidebar-card-body { padding: 22px; }
+    .book-cta { text-align: center; }
+    .book-cta p { font-size: 14px; color: var(--muted); margin-bottom: 16px; line-height: 1.6; }
+    .btn-book { display: block; background: var(--light-blue); color: white; padding: 13px 20px; border-radius: 8px; font-size: 15px; font-weight: 700; text-align: center; margin-bottom: 10px; transition: background 0.2s; }
+    .btn-book:hover { background: var(--navy); }
+    .btn-call { display: block; background: transparent; color: var(--navy); padding: 12px 20px; border-radius: 8px; font-size: 15px; font-weight: 700; text-align: center; border: 2px solid var(--navy); transition: all 0.2s; }
+    .btn-call:hover { background: var(--navy); color: white; }
+    .btn-call-red { display: block; background: var(--red); color: white; padding: 13px 20px; border-radius: 8px; font-size: 16px; font-weight: 800; text-align: center; transition: background 0.2s; }
+    .btn-call-red:hover { background: #a93226; }
+    .quick-facts { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .quick-facts li { display: flex; justify-content: space-between; align-items: center; font-size: 14px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+    .quick-facts li:last-child { border-bottom: none; padding-bottom: 0; }
+    .quick-facts .label { color: var(--muted); }
+    .quick-facts .value { font-weight: 700; color: var(--navy); }
+    .services-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .services-list li a { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--text); padding: 9px 12px; border-radius: 8px; transition: background 0.15s, color 0.15s; font-weight: 500; }
+    .services-list li a:hover { background: var(--bg); color: var(--light-blue); }
+    .services-list li a.active { background: #ddeef8; color: var(--navy); font-weight: 700; }
+    .services-list li a .arrow { margin-left: auto; font-size: 12px; color: var(--muted); }
+
+    .cta-strip { background: var(--bg); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 64px 24px; text-align: center; }
+    .cta-strip h2 { font-size: 30px; font-weight: 800; color: var(--navy); margin-bottom: 12px; }
+    .cta-strip p { font-size: 16px; color: var(--muted); max-width: 480px; margin: 0 auto 28px; }
+    .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-navy { background: var(--navy); color: white; padding: 13px 28px; border-radius: 8px; font-size: 15px; font-weight: 700; transition: background 0.2s; }
+    .btn-navy:hover { background: var(--blue); }
+    .btn-outline-navy { background: transparent; color: var(--navy); padding: 13px 28px; border-radius: 8px; font-size: 15px; font-weight: 700; border: 2px solid var(--navy); transition: all 0.2s; }
+    .btn-outline-navy:hover { background: var(--navy); color: white; }
+
+    footer { background: #0a2d47; color: rgba(255,255,255,0.75); padding: 56px 24px 28px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    .footer-brand .logo-text strong { color: white; }
+    .footer-brand .logo-text span { color: rgba(255,255,255,0.5); }
+    .footer-brand p { font-size: 13px; margin-top: 14px; color: rgba(255,255,255,0.6); line-height: 1.6; }
+    .footer-col h4 { color: white; font-size: 14px; font-weight: 700; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul li a { font-size: 13px; color: rgba(255,255,255,0.65); transition: color 0.2s; }
+    .footer-col ul li a:hover { color: white; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; display: flex; justify-content: space-between; font-size: 12px; color: rgba(255,255,255,0.4); }
+
+    @media (max-width: 960px) {
+      .content-wrap { grid-template-columns: 1fr; }
+      .sidebar { order: -1; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .nav-links { display: none; }
+    }
+    @media (max-width: 600px) {
+      .page-banner h1 { font-size: 32px; }
+      .benefits-list, .emergency-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .cta-btns { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <nav>
+    <a href="index.html" class="logo">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.5 2 6 4.5 6 7c0 1.5.5 2.8 1.3 3.8L6 20c0 1.1.9 2 2 2 .7 0 1.3-.4 1.7-1L12 17l2.3 4c.4.6 1 1 1.7 1 1.1 0 2-.9 2-2l-1.3-9.2C17.5 9.8 18 8.5 18 7c0-2.5-2.5-5-6-5z"/></svg>
+      </div>
+      <div class="logo-text">
+        <strong>LONG LAKE</strong>
+        <span>Family Dentistry</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="index.html#services" class="active">Services</a></li>
+      <li><a href="team.html">Our Team</a></li>
+      <li><a href="index.html#testimonials">Testimonials</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <a href="index.html#contact" class="btn-primary">Book Appointment</a>
+  </nav>
+</header>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="index.html">Home</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="index.html#services">Services</a>
+    <span class="breadcrumb-sep">›</span>
+    <span>Emergency Dental Care</span>
+  </div>
+</div>
+
+<!-- BANNER -->
+<div class="page-banner">
+  <div class="tag">Emergency Care</div>
+  <h1>Emergency Dental Care</h1>
+  <p>Dental emergencies don't wait for a convenient time. Neither do we. Call us first — we'll get you seen quickly.</p>
+</div>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <div class="trust-stat"><div class="trust-stat-number">Same</div><div class="trust-stat-label">Day Appointments</div></div>
+    <div class="trust-stat-divider"></div>
+    <div class="trust-stat"><div class="trust-stat-number">20+</div><div class="trust-stat-label">Years of Experience</div></div>
+    <div class="trust-stat-divider"></div>
+    <div class="trust-stat"><div class="trust-stat-number">3</div><div class="trust-stat-label">Expert Dentists</div></div>
+    <div class="trust-stat-divider"></div>
+    <div class="trust-stat"><div class="trust-stat-number">✔</div><div class="trust-stat-label">New Patients Welcome</div></div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="content-wrap">
+
+  <article class="article">
+
+    <div class="emergency-callout">
+      <div class="emergency-callout-icon">🚨</div>
+      <div>
+        <h4>Experiencing a Dental Emergency Right Now?</h4>
+        <p>Call us immediately at <a href="tel:7055231004">705-523-1004</a>. We prioritize same-day appointments for patients in pain. If you are experiencing a life-threatening situation, please call 911 or go to your nearest emergency room.</p>
+      </div>
+    </div>
+
+    <h2>Fast, Compassionate Emergency Dental Care</h2>
+    <div class="gold-bar"></div>
+
+    <p>A dental emergency can happen without warning — a knocked-out tooth from a fall, an unbearable toothache that wakes you in the night, a cracked tooth from biting into something hard. Whatever the situation, Long Lake Family Dentistry is here to help. We reserve emergency appointment slots in our daily schedule specifically to ensure that patients in pain are seen as quickly as possible — often the same day you call.</p>
+
+    <div class="service-image-block">
+      <img
+        src="https://images.unsplash.com/photo-1551190822-a9333d879b1f?w=900&q=80&auto=format&fit=crop"
+        alt="Emergency dental care at Long Lake Family Dentistry"
+      />
+      <div class="image-caption">Our team is equipped and ready to handle a full range of dental emergencies with speed and compassion.</div>
+    </div>
+
+    <p>Delaying care for a dental emergency can turn a manageable problem into a significantly more complex and costly one. A cracked tooth left untreated can develop into a fractured root. A tooth that could have been saved with prompt care may eventually require extraction. An abscess left unaddressed can spread to surrounding tissue and bone. Acting quickly — and calling our office first — is always the right move when something unexpected happens with your teeth or gums.</p>
+
+    <h3>Common Dental Emergencies We Treat</h3>
+
+    <div class="emergency-grid">
+      <div class="emergency-card">
+        <div class="emergency-card-icon">🦷</div>
+        <h4>Severe Toothache</h4>
+        <p>Intense, persistent tooth pain can indicate decay that has reached the nerve, an abscess, or a cracked tooth. We diagnose the cause and provide immediate pain relief.</p>
+      </div>
+      <div class="emergency-card">
+        <div class="emergency-card-icon">💥</div>
+        <h4>Knocked-Out Tooth</h4>
+        <p>Time is critical — a tooth reimplanted within 30–60 minutes has the best chance of survival. Keep the tooth moist and call us immediately.</p>
+      </div>
+      <div class="emergency-card">
+        <div class="emergency-card-icon">⚡</div>
+        <h4>Cracked or Fractured Tooth</h4>
+        <p>A cracked tooth can cause sharp pain and sensitivity. Depending on the severity, treatment may involve a filling, crown, or other restorative care.</p>
+      </div>
+      <div class="emergency-card">
+        <div class="emergency-card-icon">🔴</div>
+        <h4>Dental Abscess</h4>
+        <p>An abscess is a serious infection that can spread rapidly. Symptoms include swelling, fever, and throbbing pain. This requires urgent care — do not wait.</p>
+      </div>
+      <div class="emergency-card">
+        <div class="emergency-card-icon">🩹</div>
+        <h4>Lost Filling or Crown</h4>
+        <p>A lost restoration leaves your tooth vulnerable to sensitivity and further damage. We can replace or recement your filling or crown quickly to protect the tooth.</p>
+      </div>
+      <div class="emergency-card">
+        <div class="emergency-card-icon">🩸</div>
+        <h4>Gum or Soft Tissue Injury</h4>
+        <p>Lacerations to the lips, gums, cheeks, or tongue from trauma should be evaluated. We can treat injuries and advise when referral to a specialist is needed.</p>
+      </div>
+    </div>
+
+    <h3>What to Do While You're on Your Way</h3>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h4>Call Us First</h4>
+          <p>Phone 705-523-1004 immediately. Describing your situation allows our team to prepare for your arrival and provide first-aid guidance over the phone.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h4>For a Knocked-Out Tooth</h4>
+          <p>Handle the tooth by the crown (not the root). If dirty, rinse gently with milk or saline — not tap water. Keep it moist by placing it in milk, saline, or between your cheek and gum. Get to us within 30 minutes for the best chance of reimplantation.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h4>For Severe Pain or Swelling</h4>
+          <p>Take over-the-counter pain relief such as ibuprofen as directed on the package. Apply a cold compress (10 minutes on, 10 minutes off) to reduce swelling. Do not apply heat to a dental swelling.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <h4>For Bleeding</h4>
+          <p>Apply gentle, firm pressure with clean gauze or a cloth. If bleeding does not slow after 20 minutes of continuous pressure, proceed to the nearest emergency room.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3>Why Choose Long Lake Family Dentistry for Emergency Care</h3>
+
+    <div class="benefits-list">
+      <div class="benefit-item">
+        <div class="benefit-icon">⚡</div>
+        <p>Same-day emergency appointments available</p>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon">📞</div>
+        <p>Phone guidance while you travel to us</p>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon">🩺</div>
+        <p>3 experienced dentists on our team</p>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon">🔬</div>
+        <p>Digital X-rays for rapid, accurate diagnosis</p>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon">😌</div>
+        <p>Calm, compassionate care when you need it most</p>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon">👥</div>
+        <p>New patients always welcome in emergencies</p>
+      </div>
+    </div>
+
+    <h3>Frequently Asked Questions</h3>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          What counts as a dental emergency?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">Any situation causing severe pain, significant swelling, uncontrolled bleeding, a knocked-out tooth, or an injury that risks permanent damage qualifies as an emergency. When in doubt, call us — we'll help you determine the urgency and whether you need to come in right away.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Do you accept patients who aren't currently registered at your clinic?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">Absolutely. We welcome new patients in emergency situations. Call us, explain your situation, and we'll do everything we can to see you promptly. You don't have to be an existing patient to receive emergency care.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          What if my emergency happens after hours?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">Please call our office line — we have an after-hours message with guidance. For life-threatening emergencies or severe facial swelling affecting your airway, always call 911 or go to the nearest hospital emergency department immediately.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Can a knocked-out tooth really be saved?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">Yes — if you act quickly. A tooth reimplanted within 30 minutes has an excellent chance of survival. Keep the tooth moist (in milk, saline, or in your cheek) and get to us as fast as possible. The sooner you arrive, the better the prognosis.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Is emergency dental care covered by insurance?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">Most dental insurance plans cover emergency examinations and any necessary treatments at your standard coverage rate. Bring your insurance information to your appointment and our administrative team will submit the claim on your behalf.</div>
+      </div>
+    </div>
+
+  </article>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <div class="sidebar-card">
+      <div class="sidebar-card-header red">🚨 Dental Emergency?</div>
+      <div class="sidebar-card-body book-cta">
+        <p style="font-weight:700; color:#c0392b;">Call us immediately. We prioritize same-day care for patients in pain.</p>
+        <a href="tel:7055231004" class="btn-call-red">📞 Call 705-523-1004 Now</a>
+        <br/>
+        <a href="index.html#contact" class="btn-call">Or Book Online</a>
+      </div>
+    </div>
+
+    <div class="sidebar-card">
+      <div class="sidebar-card-header">🦷 Quick Facts</div>
+      <div class="sidebar-card-body">
+        <ul class="quick-facts">
+          <li><span class="label">Availability</span><span class="value">Same-day care</span></li>
+          <li><span class="label">New Patients</span><span class="value">Always welcome</span></li>
+          <li><span class="label">X-Ray Tech</span><span class="value">Digital (on-site)</span></li>
+          <li><span class="label">Anesthesia</span><span class="value">Local available</span></li>
+          <li><span class="label">Insurance</span><span class="value">Most plans accepted</span></li>
+          <li><span class="label">After Hours</span><span class="value">Call for guidance</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sidebar-card">
+      <div class="sidebar-card-header">🩺 Other Services</div>
+      <div class="sidebar-card-body">
+        <ul class="services-list">
+          <li><a href="services-teeth-cleaning.html">🪥 Teeth Cleaning <span class="arrow">▶</span></a></li>
+          <li><a href="services-crowns.html">👑 Crowns <span class="arrow">▶</span></a></li>
+          <li><a href="services-implants.html">🦷 Dental Implants <span class="arrow">▶</span></a></li>
+          <li><a href="services-fillings.html">🔬 Fillings &amp; Composites <span class="arrow">▶</span></a></li>
+          <li><a href="services-whitening.html">✨ Teeth Whitening <span class="arrow">▶</span></a></li>
+          <li><a href="services-emergency.html" class="active">🚨 Emergency Care <span class="arrow">▶</span></a></li>
+        </ul>
+      </div>
+    </div>
+
+  </aside>
+</div>
+
+<!-- CTA STRIP -->
+<div class="cta-strip">
+  <h2>Don't Wait — Call Us Now</h2>
+  <p>Dental pain won't get better on its own. Our team is ready to help you today — new patients always welcome.</p>
+  <div class="cta-btns">
+    <a href="tel:7055231004" class="btn-navy">📞 Call 705-523-1004</a>
+    <a href="index.html#contact" class="btn-outline-navy">📅 Book Online</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">
+          <div class="logo-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.5 2 6 4.5 6 7c0 1.5.5 2.8 1.3 3.8L6 20c0 1.1.9 2 2 2 .7 0 1.3-.4 1.7-1L12 17l2.3 4c.4.6 1 1 1.7 1 1.1 0 2-.9 2-2l-1.3-9.2C17.5 9.8 18 8.5 18 7c0-2.5-2.5-5-6-5z"/></svg>
+          </div>
+          <div class="logo-text">
+            <strong>LONG LAKE</strong>
+            <span>Family Dentistry</span>
+          </div>
+        </div>
+        <p>Providing exceptional dental care to the Sudbury community with compassion, expertise, and the latest technology.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services-teeth-cleaning.html">Teeth Cleaning</a></li>
+          <li><a href="services-implants.html">Dental Implants</a></li>
+          <li><a href="services-crowns.html">Crowns</a></li>
+          <li><a href="services-whitening.html">Teeth Whitening</a></li>
+          <li><a href="services-emergency.html">Emergency Care</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="team.html">Our Team</a></li>
+          <li><a href="index.html#testimonials">Testimonials</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="#"># 1 - 2231 Long Lake Rd</a></li>
+          <li><a href="#">Sudbury, ON P3E 5H3</a></li>
+          <li><a href="tel:7055231004">705-523-1004</a></li>
+          <li><a href="mailto:info@longlakdental.ca">info@longlakdental.ca</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Long Lake Family Dentistry. All rights reserved.</span>
+      <span>Privacy Policy · Terms of Service</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toggleFaq(el) {
+    const item = el.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+</script>
+</body>
+</html>

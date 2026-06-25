@@ -451,6 +451,15 @@
     .reviewer-name { font-size: 14px; font-weight: 600; color: var(--navy); }
     .reviewer-date { font-size: 12px; color: var(--muted); }
 
+    /* ── HOME FAQ ── */
+    .home-faq-item { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: white; }
+    .home-faq-q { display: flex; justify-content: space-between; align-items: center; padding: 18px 22px; font-size: 15px; font-weight: 700; color: var(--navy); cursor: pointer; gap: 12px; }
+    .home-faq-q:hover { background: #edf4fb; }
+    .home-faq-icon { font-size: 20px; font-weight: 400; color: var(--light-blue); flex-shrink: 0; transition: transform 0.3s; }
+    .home-faq-a { padding: 0 22px; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.35s ease; font-size: 15px; color: #444; line-height: 1.7; }
+    .home-faq-item.open .home-faq-a { max-height: 240px; padding: 0 22px 18px; }
+    .home-faq-item.open .home-faq-icon { transform: rotate(45deg); }
+
     /* ── BOOKING FORM ── */
     .booking { background: var(--navy); color: white; }
     .booking-inner {
@@ -587,14 +596,15 @@
           <a href="services-crowns.html"><span class="dropdown-icon">👑</span> Crowns</a>
           <a href="services-implants.html"><span class="dropdown-icon">🦷</span> Dental Implants</a>
           <a href="#services"><span class="dropdown-icon">🦷</span> Veneers</a>
-          <a href="#services"><span class="dropdown-icon">🔬</span> Fillings &amp; Composites</a>
+          <a href="services-fillings.html"><span class="dropdown-icon">🔬</span> Fillings &amp; Composites</a>
           <a href="#services"><span class="dropdown-icon">🛡️</span> Mouth Guards</a>
           <a href="#services"><span class="dropdown-icon">📡</span> Digital X-Rays</a>
           <a href="#services"><span class="dropdown-icon">🩺</span> Extractions</a>
           <a href="#services"><span class="dropdown-icon">🌉</span> Dental Bridges</a>
           <a href="#services"><span class="dropdown-icon">🦠</span> Root Canal</a>
           <a href="#services"><span class="dropdown-icon">🦷</span> Dentures</a>
-          <a href="#services"><span class="dropdown-icon">🚨</span> Emergency Care</a>
+          <a href="services-whitening.html"><span class="dropdown-icon">✨</span> Teeth Whitening</a>
+          <a href="services-emergency.html"><span class="dropdown-icon">🚨</span> Emergency Care</a>
         </div>
       </li>
       <li><a href="team.html">Team</a></li>
@@ -712,11 +722,11 @@
         <h3>Veneers</h3>
         <p>Thin porcelain shells that transform the look of chipped, stained, or uneven teeth.</p>
       </div>
-      <div class="service-card">
+      <a href="services-fillings.html" class="service-card">
         <div class="service-emoji">🔬</div>
         <h3>Fillings &amp; Composites</h3>
         <p>Tooth-coloured fillings that blend seamlessly with your smile.</p>
-      </div>
+      </a>
       <div class="service-card">
         <div class="service-emoji">🛡️</div>
         <h3>Mouth Guards</h3>
@@ -889,6 +899,84 @@
   </div>
 </section>
 
+<!-- ── FAQ ── -->
+<section id="faq" style="background: var(--bg); border-top: 1px solid var(--border); padding: 80px 24px;">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-tag">Common Questions</div>
+      <h2>Frequently Asked Questions</h2>
+      <p>Everything you need to know about visiting Long Lake Family Dentistry.</p>
+    </div>
+    <div style="max-width: 780px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px;">
+
+      <div class="home-faq-item">
+        <div class="home-faq-q" onclick="toggleHomeFaq(this)">
+          Are you accepting new patients?
+          <span class="home-faq-icon">+</span>
+        </div>
+        <div class="home-faq-a">Yes! We warmly welcome new patients of all ages. You can request an appointment online using the form below, or give us a call at 705-523-1004 and our team will get you booked quickly.</div>
+      </div>
+
+      <div class="home-faq-item">
+        <div class="home-faq-q" onclick="toggleHomeFaq(this)">
+          How often should I come in for a check-up and cleaning?
+          <span class="home-faq-icon">+</span>
+        </div>
+        <div class="home-faq-a">For most patients, we recommend a professional cleaning and examination every six months. Some patients with gum disease, a higher cavity risk, or other specific conditions may benefit from more frequent visits — your dentist will advise you on the schedule that's best for your oral health.</div>
+      </div>
+
+      <div class="home-faq-item">
+        <div class="home-faq-q" onclick="toggleHomeFaq(this)">
+          Do you offer emergency dental appointments?
+          <span class="home-faq-icon">+</span>
+        </div>
+        <div class="home-faq-a">Absolutely. We reserve same-day appointment slots for dental emergencies. If you are experiencing a toothache, a knocked-out tooth, a broken tooth, or any other dental emergency, call us immediately at 705-523-1004 and we will do our best to see you right away.</div>
+      </div>
+
+      <div class="home-faq-item">
+        <div class="home-faq-q" onclick="toggleHomeFaq(this)">
+          What insurance plans do you accept?
+          <span class="home-faq-icon">+</span>
+        </div>
+        <div class="home-faq-a">We work with most major Canadian dental insurance plans and are happy to submit claims directly to your insurer on your behalf. We recommend calling our office ahead of your appointment so our team can verify your coverage and answer any questions about your benefits.</div>
+      </div>
+
+      <div class="home-faq-item">
+        <div class="home-faq-q" onclick="toggleHomeFaq(this)">
+          Do you see children? What age do you recommend starting dental visits?
+          <span class="home-faq-icon">+</span>
+        </div>
+        <div class="home-faq-a">We love seeing young patients! The Canadian Dental Association recommends that children have their first dental visit within six months of their first tooth appearing, or by age one. Early visits help children feel comfortable with dental care and allow us to monitor development from the start.</div>
+      </div>
+
+      <div class="home-faq-item">
+        <div class="home-faq-q" onclick="toggleHomeFaq(this)">
+          Do you offer teeth whitening and cosmetic dental treatments?
+          <span class="home-faq-icon">+</span>
+        </div>
+        <div class="home-faq-a">Yes — we offer professional in-office teeth whitening and custom take-home whitening kits, as well as composite bonding, porcelain veneers, and other cosmetic treatments. Book a consultation and we'll discuss which options are best suited to your goals and budget.</div>
+      </div>
+
+      <div class="home-faq-item">
+        <div class="home-faq-q" onclick="toggleHomeFaq(this)">
+          I'm nervous about dental visits. How do you handle anxious patients?
+          <span class="home-faq-icon">+</span>
+        </div>
+        <div class="home-faq-a">Dental anxiety is very common and we take it seriously. Our entire team is trained to work at your pace, explain every step before we do it, and create a calm, judgment-free environment. Let us know when you book that you experience anxiety — we'll take extra care to ensure your visit is as comfortable as possible.</div>
+      </div>
+
+      <div class="home-faq-item">
+        <div class="home-faq-q" onclick="toggleHomeFaq(this)">
+          Where are you located and what are your hours?
+          <span class="home-faq-icon">+</span>
+        </div>
+        <div class="home-faq-a">We are located at #1 – 2231 Long Lake Rd, Sudbury, ON P3E 5H3. Our office hours are Monday through Friday 8:00 AM – 5:00 PM, and Saturday 9:00 AM – 2:00 PM. We are closed on Sundays.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- ── BOOKING ── -->
 <section class="booking" id="contact">
   <div class="booking-inner">
@@ -979,8 +1067,8 @@
           <li><a href="services-teeth-cleaning.html">Teeth Cleaning</a></li>
           <li><a href="services-implants.html">Dental Implants</a></li>
           <li><a href="services-crowns.html">Crowns</a></li>
-          <li><a href="#services">Teeth Whitening</a></li>
-          <li><a href="#services">Emergency Care</a></li>
+          <li><a href="services-whitening.html">Teeth Whitening</a></li>
+          <li><a href="services-emergency.html">Emergency Care</a></li>
         </ul>
       </div>
 
@@ -1014,6 +1102,13 @@
 </footer>
 
 <script>
+  function toggleHomeFaq(el) {
+    const item = el.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.home-faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
   function handleSubmit(e) {
     e.preventDefault();
     const btn = e.target.querySelector('.form-submit');
