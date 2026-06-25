@@ -67,7 +67,7 @@
     .section-label h2 { font-size: 32px; font-weight: 800; color: var(--navy); margin-bottom: 8px; }
     .section-label p { font-size: 16px; color: var(--muted); max-width: 520px; margin: 0 auto; }
 
-    /* MASONRY-STYLE GRID */
+    /* GALLERY GRID */
     .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
     .gallery-item { border-radius: 16px; overflow: hidden; box-shadow: 0 6px 24px rgba(0,0,0,0.08); position: relative; cursor: pointer; }
     .gallery-item img { width: 100%; height: 260px; object-fit: cover; display: block; transition: transform 0.4s ease; }
@@ -76,10 +76,9 @@
     .gallery-item:hover .overlay { background: rgba(13,59,94,0.35); }
     .gallery-item .overlay-label { color: white; font-size: 14px; font-weight: 700; padding: 16px 18px; opacity: 0; transform: translateY(8px); transition: all 0.3s; }
     .gallery-item:hover .overlay-label { opacity: 1; transform: translateY(0); }
-
-    /* WIDE ITEM */
-    .gallery-item.wide { grid-column: span 2; }
-    .gallery-item.wide img { height: 340px; }
+    /* Last row: 2 items centred */
+    .gallery-grid .gallery-item:nth-last-child(2):nth-child(3n+1) { grid-column: 1 / 2; }
+    .gallery-row-center { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: calc(800px + 20px); margin: 20px auto 0; }
 
     /* LIGHTBOX */
     .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.92); z-index: 1000; align-items: center; justify-content: center; padding: 20px; }
@@ -127,7 +126,7 @@
 
     @media (max-width: 960px) {
       .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-      .gallery-item.wide { grid-column: span 2; }
+      .gallery-row-center { grid-template-columns: repeat(2, 1fr); max-width: 100%; }
       .amenities-grid { grid-template-columns: repeat(2, 1fr); }
       .footer-grid { grid-template-columns: 1fr 1fr; }
       .nav-links { display: none; }
@@ -135,8 +134,7 @@
     @media (max-width: 600px) {
       .page-banner h1 { font-size: 32px; }
       .gallery-grid { grid-template-columns: 1fr; }
-      .gallery-item.wide { grid-column: span 1; }
-      .gallery-item.wide img { height: 260px; }
+      .gallery-row-center { grid-template-columns: 1fr; max-width: 100%; }
       .amenities-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr; }
       .cta-btns { flex-direction: column; align-items: center; }
@@ -218,48 +216,48 @@
       <p>Take a look around — click any photo to view it full size.</p>
     </div>
 
+    <!-- Row 1 -->
     <div class="gallery-grid">
-
-      <div class="gallery-item wide" onclick="openLightbox(0)">
+      <div class="gallery-item" onclick="openLightbox(0)">
         <img src="https://longlakefamilydentistry.ca/wp-content/uploads/2019/08/front-desk-2-750-750x500.jpg" alt="Reception area" />
         <div class="overlay"><div class="overlay-label">Reception Area</div></div>
       </div>
-
       <div class="gallery-item" onclick="openLightbox(1)">
         <img src="https://longlakefamilydentistry.ca/wp-content/uploads/2019/08/front-desk-3-1000-750x500.jpg" alt="Front desk" />
         <div class="overlay"><div class="overlay-label">Front Desk</div></div>
       </div>
-
       <div class="gallery-item" onclick="openLightbox(2)">
         <img src="https://longlakefamilydentistry.ca/wp-content/uploads/2019/08/front-desk-4-1000-750x500.jpg" alt="Waiting area" />
         <div class="overlay"><div class="overlay-label">Waiting Area</div></div>
       </div>
+    </div>
 
+    <!-- Row 2 -->
+    <div class="gallery-grid" style="margin-top:20px;">
       <div class="gallery-item" onclick="openLightbox(3)">
         <img src="https://longlakefamilydentistry.ca/wp-content/uploads/2019/08/front-desk-6-1000-750x500.jpg" alt="Office interior" />
         <div class="overlay"><div class="overlay-label">Office Interior</div></div>
       </div>
-
-      <div class="gallery-item wide" onclick="openLightbox(4)">
+      <div class="gallery-item" onclick="openLightbox(4)">
         <img src="https://longlakefamilydentistry.ca/wp-content/uploads/2019/08/front-desk-7-1000-750x500.jpg" alt="Office hallway" />
         <div class="overlay"><div class="overlay-label">Our Hallway</div></div>
       </div>
-
       <div class="gallery-item" onclick="openLightbox(5)">
         <img src="https://longlakefamilydentistry.ca/wp-content/uploads/2019/08/office-1-1000-750x500.jpg" alt="Treatment room" />
         <div class="overlay"><div class="overlay-label">Treatment Room</div></div>
       </div>
+    </div>
 
+    <!-- Row 3: 2 centred -->
+    <div class="gallery-row-center">
       <div class="gallery-item" onclick="openLightbox(6)">
         <img src="https://longlakefamilydentistry.ca/wp-content/uploads/2019/08/office-2-1000-750x500.jpg" alt="Dental operatory" />
         <div class="overlay"><div class="overlay-label">Dental Operatory</div></div>
       </div>
-
-      <div class="gallery-item wide" onclick="openLightbox(7)">
+      <div class="gallery-item" onclick="openLightbox(7)">
         <img src="https://longlakefamilydentistry.ca/wp-content/uploads/2019/08/office-3-1000-750x500.jpg" alt="Modern dental suite" />
         <div class="overlay"><div class="overlay-label">Modern Dental Suite</div></div>
       </div>
-
     </div>
   </div>
 </div>
