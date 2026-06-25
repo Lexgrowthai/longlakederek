@@ -131,6 +131,14 @@
     .trust-stat-number { font-size: 28px; font-weight: 800; color: var(--navy); line-height: 1; margin-bottom: 4px; }
     .trust-stat-label { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
     .trust-stat-divider { width: 1px; height: 40px; background: var(--border); flex-shrink: 0; }
+    .faq-list { display: flex; flex-direction: column; gap: 12px; margin: 8px 0 28px; }
+    .faq-item { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+    .faq-question { display: flex; justify-content: space-between; align-items: center; padding: 18px 20px; font-size: 15px; font-weight: 700; color: var(--navy); cursor: pointer; background: var(--bg); gap: 12px; }
+    .faq-question:hover { background: #e8f0f8; }
+    .faq-icon { font-size: 18px; font-weight: 400; color: var(--light-blue); flex-shrink: 0; transition: transform 0.3s; }
+    .faq-answer { padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.35s ease; font-size: 15px; color: #444; line-height: 1.7; }
+    .faq-item.open .faq-answer { max-height: 300px; padding: 0 20px 18px; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
 
     @media (max-width: 960px) {
       .content-wrap { grid-template-columns: 1fr; }
@@ -311,6 +319,42 @@
 
     <p>If you have a tooth that is cracked, heavily filled, or causing you concern, don't wait for the problem to worsen. The sooner a damaged tooth is protected with a crown, the better the long-term outcome. Contact Long Lake Family Dentistry today to schedule a consultation — we'll help you understand all your options and find the solution that's right for your smile and your life.</p>
 
+    <h3>Frequently Asked Questions</h3>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">How long does a dental crown last? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">With proper care, a dental crown typically lasts 10 to 15 years — and often longer. The lifespan depends on the material used, where the crown is in your mouth, your bite, and how well you maintain your oral hygiene. Porcelain-fused-to-metal and zirconia crowns are among the most durable options available today.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">Does getting a crown hurt? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">The procedure is done under local anaesthetic, so you should feel comfortable throughout. Some sensitivity is normal after the anaesthetic wears off and while wearing the temporary crown — this typically resolves once the permanent crown is placed. If you experience significant or prolonged pain, contact us and we'll assess the fit.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">How many appointments does it take to get a crown? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">A traditional crown requires two appointments: the first to prepare the tooth and take an impression, and the second (usually 2–3 weeks later) to place the permanent crown. A temporary crown is worn in between. Some practices offer same-day CEREC crowns, though our process ensures a precise, lab-crafted restoration for optimal fit and aesthetics.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">What is the difference between a crown and a veneer? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">A veneer covers only the front surface of a tooth and is used purely for cosmetic improvements — it's thin and requires minimal tooth removal. A crown covers the entire tooth and is used when the tooth is structurally compromised, severely decayed, cracked, or following a root canal. Crowns provide full protection; veneers provide a cosmetic enhancement.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">Can a crowned tooth still get a cavity? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">The crown itself cannot decay, but the natural tooth underneath it can — particularly at the margin where the crown meets the gum line. This is why maintaining good oral hygiene, including brushing and flossing around crowned teeth, is just as important as with natural teeth. Regular checkups allow us to catch any issues early.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">Is a dental crown covered by insurance? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">Dental crowns are typically classified as a major restorative procedure and are covered at 50–80% by most insurance plans after your deductible. Coverage may depend on the reason for the crown and whether it is deemed medically necessary. We recommend verifying your benefits before your appointment — our team is happy to help with this.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">What materials are dental crowns made from? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">The most common crown materials are porcelain (all-ceramic), porcelain-fused-to-metal (PFM), and zirconia. All-ceramic and zirconia crowns offer the best aesthetics and are ideal for front teeth. PFM crowns are strong and durable — well-suited for back teeth. We'll recommend the best material based on the tooth's location, your bite, and your goals.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">What happens if I don't get a crown when recommended? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">A tooth that needs a crown but doesn't receive one is at significant risk of cracking further — sometimes to the point where it can no longer be saved and must be extracted. It may also break while eating, which is both painful and more difficult to treat. Addressing the problem early with a crown is almost always the most conservative and cost-effective approach.</div>
+      </div>
+    </div>
+
   </article>
 
   <aside class="sidebar">
@@ -428,6 +472,13 @@
     </div>
   </div>
 </footer>
-
+<script>
+  function toggleFaq(el) {
+    const item = el.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+</script>
 </body>
 </html>

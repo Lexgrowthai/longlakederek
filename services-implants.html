@@ -131,6 +131,14 @@
     .trust-stat-number { font-size: 28px; font-weight: 800; color: var(--navy); line-height: 1; margin-bottom: 4px; }
     .trust-stat-label { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
     .trust-stat-divider { width: 1px; height: 40px; background: var(--border); flex-shrink: 0; }
+    .faq-list { display: flex; flex-direction: column; gap: 12px; margin: 8px 0 28px; }
+    .faq-item { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+    .faq-question { display: flex; justify-content: space-between; align-items: center; padding: 18px 20px; font-size: 15px; font-weight: 700; color: var(--navy); cursor: pointer; background: var(--bg); gap: 12px; }
+    .faq-question:hover { background: #e8f0f8; }
+    .faq-icon { font-size: 18px; font-weight: 400; color: var(--light-blue); flex-shrink: 0; transition: transform 0.3s; }
+    .faq-answer { padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.35s ease; font-size: 15px; color: #444; line-height: 1.7; }
+    .faq-item.open .faq-answer { max-height: 300px; padding: 0 20px 18px; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
 
     @media (max-width: 960px) {
       .content-wrap { grid-template-columns: 1fr; }
@@ -307,6 +315,42 @@
 
     <p>If you are living with one or more missing teeth and want to explore the best permanent solution available, we invite you to schedule a consultation with our team at Long Lake Family Dentistry. We will take the time to thoroughly assess your situation, answer every question, and help you decide if implants are the right choice for your health, your smile, and your life. A complete, confident smile is closer than you think.</p>
 
+    <h3>Frequently Asked Questions</h3>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">Are dental implants painful? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">The implant surgery is performed under local anaesthetic, so you should feel pressure but no pain during the procedure. Most patients report that the discomfort afterward is milder than they expected — typically manageable with over-the-counter pain relief for 2–3 days. The healing process is gradual and generally comfortable.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">How long do dental implants last? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">With proper oral hygiene and regular dental checkups, the implant fixture itself can last a lifetime. The crown placed on top typically lasts 10–15 years before it may need to be replaced due to normal wear. This makes implants the longest-lasting tooth replacement option available — and the most cost-effective over the long term.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">Am I a candidate for dental implants? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">Most healthy adults with adequate jawbone density are good candidates for implants. Key requirements include healthy gums, sufficient bone to anchor the implant, and no uncontrolled systemic conditions that impair healing. Patients who have experienced bone loss may still qualify after a bone graft procedure. A consultation with X-rays will determine your eligibility.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">How long does the implant process take from start to finish? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">The full implant process typically takes 3–6 months. After the implant is placed, a healing period of 3–4 months is needed for osseointegration — the process by which the implant fuses with the jawbone. Once fully healed, the abutment and final crown are placed. Cases requiring bone grafting may add additional time.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">What is the success rate of dental implants? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">Dental implants have a long-term success rate of 95–98% in healthy patients. Factors that can affect success include smoking, uncontrolled diabetes, and poor oral hygiene. Choosing an experienced provider and following all aftercare instructions significantly improves outcomes. We discuss your individual risk factors thoroughly before proceeding.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">Are dental implants covered by insurance? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">Coverage varies widely. Some insurance plans cover part of the cost — typically the crown portion — while others do not cover implants at all. We recommend checking your specific plan before your consultation. We can also discuss financing options to help make implants accessible regardless of your coverage situation.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">How do I care for my dental implant? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">Implants are cared for just like natural teeth — brush twice daily, floss once a day, and attend regular checkups and cleanings. There are no special cleaning products required. Avoiding hard foods that could chip the crown and not smoking are the two most important things you can do to protect your implant long-term.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">What happens if I don't replace a missing tooth? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">When a tooth is missing, the surrounding teeth gradually drift into the empty space, your bite changes, and the jawbone beneath begins to shrink (resorb) due to lack of stimulation. Over time this can cause a sunken facial appearance, difficulty chewing, and increased risk of losing neighbouring teeth. Replacing the tooth promptly — ideally with an implant — prevents all of these issues.</div>
+      </div>
+    </div>
+
   </article>
 
   <aside class="sidebar">
@@ -424,6 +468,13 @@
     </div>
   </div>
 </footer>
-
+<script>
+  function toggleFaq(el) {
+    const item = el.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+</script>
 </body>
 </html>
