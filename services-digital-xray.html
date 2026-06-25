@@ -114,7 +114,8 @@
     .footer-col ul li a:hover { color: white; }
     .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; display: flex; justify-content: space-between; font-size: 12px; color: rgba(255,255,255,0.4); }
     @media (max-width: 960px) { .content-wrap { grid-template-columns: 1fr; } .sidebar { order: -1; } .footer-grid { grid-template-columns: 1fr 1fr; } .nav-links { display: none; } }
-    @media (max-width: 600px) { .page-banner h1 { font-size: 32px; } .benefits-list { grid-template-columns: 1fr; } .footer-grid { grid-template-columns: 1fr; } .cta-btns { flex-direction: column; align-items: center; } }    .dropdown-arrow { font-size: 10px; transition: transform 0.2s; }
+    @media (max-width: 600px) { .page-banner h1 { font-size: 32px; } .benefits-list { grid-template-columns: 1fr; } .footer-grid { grid-template-columns: 1fr; } .cta-btns { flex-direction: column; align-items: center; } }
+    .dropdown-arrow { font-size: 10px; transition: transform 0.2s; }
     .nav-links li:hover .dropdown-arrow { transform: rotate(180deg); }
     .dropdown {
       display: none;
@@ -168,6 +169,11 @@
     }
     .dropdown a:hover { background: var(--bg); color: var(--light-blue) !important; }
     .dropdown-icon { font-size: 16px; width: 28px; text-align: center; }
+    .hygienist-card { display: flex; gap: 14px; align-items: center; }
+    .hygienist-card img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; object-position: center top; border: 2px solid var(--border); }
+    .hygienist-card h4 { font-size: 15px; font-weight: 700; color: var(--navy); }
+    .hygienist-card span { font-size: 12px; color: var(--muted); }
+
   </style>
 </head>
 <body>
@@ -345,7 +351,30 @@
           <li><span class="label">Images stored</span><span class="value">Digitally in your file</span></li>
         </ul>
       </div>
+    </div>    <div class="sidebar-card">
+      <div class="sidebar-card-header">&#x1F469;&#x200D;&#x2695;&#xFE0F; Meet Your Hygienists</div>
+      <div class="sidebar-card-body" style="display:flex; flex-direction:column; gap:16px;">
+        <div class="hygienist-card">
+          <img src="Teshaylia-rdh.jpg" alt="Teshaylia" />
+          <div><h4>Teshaylia</h4><span>Registered Dental Hygienist</span></div>
+        </div>
+        <div class="hygienist-card">
+          <img src="molly-rdh.jpg" alt="Molly" />
+          <div><h4>Molly</h4><span>Registered Dental Hygienist</span></div>
+        </div>
+        <div class="hygienist-card">
+          <img src="stephanie-rdh.jpg" alt="Stephanie" />
+          <div><h4>Stephanie</h4><span>Registered Dental Hygienist</span></div>
+        </div>
+        <div class="hygienist-card">
+          <img src="paige.jpg" alt="Paige" />
+          <div><h4>Paige</h4><span>Registered Dental Hygienist</span></div>
+        </div>
+        <a href="team.html" style="font-size:13px; color:var(--light-blue); font-weight:600; text-align:center; display:block;">View Full Team &#x2192;</a>
+      </div>
     </div>
+
+
     <div class="sidebar-card">
       <div class="sidebar-card-header">🩺 Other Services</div>
       <div class="sidebar-card-body">
