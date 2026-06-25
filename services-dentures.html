@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dentures | Long Lake Family Dentistry</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --navy: #0d3b5e; --blue: #1a5f8a; --light-blue: #2980b9; --gold: #c8a84b; --text: #222; --muted: #666; --bg: #f7f9fc; --white: #fff; --border: #dde3ea; }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--white); line-height: 1.7; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    header { background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+    nav { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 14px 24px; }
+    .logo { display: flex; align-items: center; gap: 10px; }
+    .logo-icon { width: 40px; height: 40px; background: var(--navy); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+    .logo-icon svg { width: 24px; height: 24px; fill: white; }
+    .logo-text strong { display: block; font-size: 15px; color: var(--navy); font-weight: 800; }
+    .logo-text span { font-size: 11px; color: var(--muted); letter-spacing: 0.5px; }
+    .nav-links { display: flex; gap: 28px; font-size: 14px; font-weight: 500; list-style: none; }
+    .nav-links a:hover { color: var(--light-blue); }
+    .nav-links a.active { color: var(--light-blue); font-weight: 700; }
+    .btn-primary { background: var(--light-blue); color: white; padding: 10px 20px; border-radius: 6px; font-size: 13px; font-weight: 600; transition: background 0.2s; }
+    .btn-primary:hover { background: var(--navy); }
+    .breadcrumb { background: var(--bg); border-bottom: 1px solid var(--border); padding: 12px 24px; }
+    .breadcrumb-inner { max-width: 1200px; margin: 0 auto; font-size: 13px; color: var(--muted); display: flex; align-items: center; gap: 8px; }
+    .breadcrumb-inner a { color: var(--light-blue); }
+    .breadcrumb-inner a:hover { text-decoration: underline; }
+    .breadcrumb-sep { color: var(--border); }
+    .page-banner { background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%); color: white; padding: 72px 24px; text-align: center; position: relative; overflow: hidden; }
+    .page-banner::before { content: ''; position: absolute; top: -80px; right: -80px; width: 320px; height: 320px; border-radius: 50%; background: rgba(255,255,255,0.04); }
+    .page-banner::after { content: ''; position: absolute; bottom: -60px; left: -60px; width: 240px; height: 240px; border-radius: 50%; background: rgba(255,255,255,0.04); }
+    .page-banner .tag { display: inline-block; background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.9); font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 5px 16px; border-radius: 20px; margin-bottom: 18px; }
+    .page-banner h1 { font-size: 50px; font-weight: 800; line-height: 1.15; margin-bottom: 14px; }
+    .page-banner p { font-size: 17px; color: rgba(255,255,255,0.8); max-width: 520px; margin: 0 auto; }
+    .trust-bar { background: white; border-bottom: 1px solid var(--border); padding: 0 24px; }
+    .trust-bar-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: center; padding: 24px 0; }
+    .trust-stat { flex: 1; text-align: center; padding: 0 16px; }
+    .trust-stat-number { font-size: 28px; font-weight: 800; color: var(--navy); line-height: 1; margin-bottom: 4px; }
+    .trust-stat-label { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
+    .trust-stat-divider { width: 1px; height: 40px; background: var(--border); flex-shrink: 0; }
+    .content-wrap { max-width: 1200px; margin: 0 auto; padding: 72px 24px; display: grid; grid-template-columns: 1fr 380px; gap: 64px; align-items: start; }
+    .article h2 { font-size: 30px; font-weight: 800; color: var(--navy); margin-bottom: 8px; line-height: 1.25; }
+    .article .gold-bar { width: 48px; height: 4px; background: var(--gold); border-radius: 2px; margin-bottom: 28px; }
+    .article p { font-size: 16px; color: #444; margin-bottom: 22px; line-height: 1.8; }
+    .article h3 { font-size: 20px; font-weight: 700; color: var(--navy); margin: 36px 0 14px; }
+    .service-image-block { border-radius: 20px; overflow: hidden; box-shadow: 0 12px 40px rgba(0,0,0,0.12); margin: 36px 0; }
+    .service-image-block img { width: 100%; height: 380px; object-fit: cover; display: block; }
+    .image-caption { background: var(--navy); color: rgba(255,255,255,0.85); font-size: 13px; padding: 12px 18px; text-align: center; }
+    .type-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 8px 0 28px; }
+    .type-card { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+    .type-card-icon { font-size: 28px; margin-bottom: 10px; }
+    .type-card h4 { font-size: 15px; font-weight: 800; color: var(--navy); margin-bottom: 6px; }
+    .type-card p { font-size: 13px; color: var(--muted); margin: 0; line-height: 1.5; }
+    .benefits-list { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 8px 0 28px; }
+    .benefit-item { display: flex; align-items: flex-start; gap: 12px; background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; }
+    .benefit-icon { width: 32px; height: 32px; background: #ddeef8; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+    .benefit-item p { font-size: 13px; color: var(--text); font-weight: 600; margin: 0; line-height: 1.4; }
+    .steps { display: flex; flex-direction: column; gap: 20px; margin: 8px 0 28px; }
+    .step { display: flex; gap: 18px; align-items: flex-start; }
+    .step-num { width: 36px; height: 36px; background: var(--navy); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; flex-shrink: 0; }
+    .step-body h4 { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+    .step-body p { font-size: 14px; color: var(--muted); margin: 0; line-height: 1.6; }
+    .faq-list { display: flex; flex-direction: column; gap: 12px; margin: 8px 0 28px; }
+    .faq-item { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+    .faq-question { display: flex; justify-content: space-between; align-items: center; padding: 18px 20px; font-size: 15px; font-weight: 700; color: var(--navy); cursor: pointer; background: var(--bg); gap: 12px; }
+    .faq-question:hover { background: #e8f0f8; }
+    .faq-icon { font-size: 18px; font-weight: 400; color: var(--light-blue); flex-shrink: 0; transition: transform 0.3s; }
+    .faq-answer { padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.35s ease; font-size: 15px; color: #444; line-height: 1.7; }
+    .faq-item.open .faq-answer { max-height: 300px; padding: 0 20px 18px; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .sidebar { display: flex; flex-direction: column; gap: 24px; }
+    .sidebar-card { background: white; border: 1px solid var(--border); border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+    .sidebar-card-header { background: var(--navy); color: white; padding: 18px 22px; font-size: 15px; font-weight: 700; }
+    .sidebar-card-body { padding: 22px; }
+    .book-cta { text-align: center; }
+    .book-cta p { font-size: 14px; color: var(--muted); margin-bottom: 16px; line-height: 1.6; }
+    .btn-book { display: block; background: var(--light-blue); color: white; padding: 13px 20px; border-radius: 8px; font-size: 15px; font-weight: 700; text-align: center; margin-bottom: 10px; transition: background 0.2s; }
+    .btn-book:hover { background: var(--navy); }
+    .btn-call { display: block; background: transparent; color: var(--navy); padding: 12px 20px; border-radius: 8px; font-size: 15px; font-weight: 700; text-align: center; border: 2px solid var(--navy); transition: all 0.2s; }
+    .btn-call:hover { background: var(--navy); color: white; }
+    .quick-facts { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .quick-facts li { display: flex; justify-content: space-between; align-items: center; font-size: 14px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+    .quick-facts li:last-child { border-bottom: none; padding-bottom: 0; }
+    .quick-facts .label { color: var(--muted); }
+    .quick-facts .value { font-weight: 700; color: var(--navy); }
+    .services-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .services-list li a { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--text); padding: 9px 12px; border-radius: 8px; transition: background 0.15s, color 0.15s; font-weight: 500; }
+    .services-list li a:hover { background: var(--bg); color: var(--light-blue); }
+    .services-list li a.active { background: #ddeef8; color: var(--navy); font-weight: 700; }
+    .services-list li a .arrow { margin-left: auto; font-size: 12px; color: var(--muted); }
+    .cta-strip { background: var(--bg); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 64px 24px; text-align: center; }
+    .cta-strip h2 { font-size: 30px; font-weight: 800; color: var(--navy); margin-bottom: 12px; }
+    .cta-strip p { font-size: 16px; color: var(--muted); max-width: 480px; margin: 0 auto 28px; }
+    .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-navy { background: var(--navy); color: white; padding: 13px 28px; border-radius: 8px; font-size: 15px; font-weight: 700; transition: background 0.2s; }
+    .btn-navy:hover { background: var(--blue); }
+    .btn-outline-navy { background: transparent; color: var(--navy); padding: 13px 28px; border-radius: 8px; font-size: 15px; font-weight: 700; border: 2px solid var(--navy); transition: all 0.2s; }
+    .btn-outline-navy:hover { background: var(--navy); color: white; }
+    footer { background: #0a2d47; color: rgba(255,255,255,0.75); padding: 56px 24px 28px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    .footer-brand .logo-text strong { color: white; }
+    .footer-brand .logo-text span { color: rgba(255,255,255,0.5); }
+    .footer-brand p { font-size: 13px; margin-top: 14px; color: rgba(255,255,255,0.6); line-height: 1.6; }
+    .footer-col h4 { color: white; font-size: 14px; font-weight: 700; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul li a { font-size: 13px; color: rgba(255,255,255,0.65); transition: color 0.2s; }
+    .footer-col ul li a:hover { color: white; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; display: flex; justify-content: space-between; font-size: 12px; color: rgba(255,255,255,0.4); }
+    @media (max-width: 960px) { .content-wrap { grid-template-columns: 1fr; } .sidebar { order: -1; } .footer-grid { grid-template-columns: 1fr 1fr; } .nav-links { display: none; } }
+    @media (max-width: 600px) { .page-banner h1 { font-size: 32px; } .benefits-list, .type-grid { grid-template-columns: 1fr; } .footer-grid { grid-template-columns: 1fr; } .cta-btns { flex-direction: column; align-items: center; } }
+  </style>
+</head>
+<body>
+<header>
+  <nav>
+    <a href="index.html" class="logo">
+      <div class="logo-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.5 2 6 4.5 6 7c0 1.5.5 2.8 1.3 3.8L6 20c0 1.1.9 2 2 2 .7 0 1.3-.4 1.7-1L12 17l2.3 4c.4.6 1 1 1.7 1 1.1 0 2-.9 2-2l-1.3-9.2C17.5 9.8 18 8.5 18 7c0-2.5-2.5-5-6-5z"/></svg></div>
+      <div class="logo-text"><strong>LONG LAKE</strong><span>Family Dentistry</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="index.html#services" class="active">Services</a></li>
+      <li><a href="team.html">Our Team</a></li>
+      <li><a href="index.html#testimonials">Testimonials</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <a href="index.html#contact" class="btn-primary">Book Appointment</a>
+  </nav>
+</header>
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="index.html">Home</a><span class="breadcrumb-sep">›</span>
+    <a href="index.html#services">Services</a><span class="breadcrumb-sep">›</span>
+    <span>Dentures</span>
+  </div>
+</div>
+<div class="page-banner">
+  <div class="tag">Restorative Dentistry</div>
+  <h1>Custom Dentures</h1>
+  <p>Restore your smile, your confidence, and your ability to eat and speak comfortably with beautifully crafted full and partial dentures.</p>
+</div>
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <div class="trust-stat"><div class="trust-stat-number">20+</div><div class="trust-stat-label">Years of Experience</div></div>
+    <div class="trust-stat-divider"></div>
+    <div class="trust-stat"><div class="trust-stat-number">Full &amp;</div><div class="trust-stat-label">Partial Options</div></div>
+    <div class="trust-stat-divider"></div>
+    <div class="trust-stat"><div class="trust-stat-number">Custom</div><div class="trust-stat-label">Fitted for You</div></div>
+    <div class="trust-stat-divider"></div>
+    <div class="trust-stat"><div class="trust-stat-number">✔</div><div class="trust-stat-label">Accepting New Patients</div></div>
+  </div>
+</div>
+<div class="content-wrap">
+  <article class="article">
+    <h2>Restore Your Smile and Your Confidence</h2>
+    <div class="gold-bar"></div>
+    <p>Losing teeth — whether one, several, or all of them — affects far more than your appearance. It impacts how you eat, how you speak, your facial structure, and your self-confidence. At Long Lake Family Dentistry, we understand how personal and emotional tooth loss can be, and we approach denture care with the compassion and expertise that this important treatment deserves. Our custom-crafted dentures are designed to look natural, fit comfortably, and restore full function to your smile.</p>
+
+    <div class="service-image-block">
+      <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=900&q=80&auto=format&fit=crop" alt="Custom dentures at Long Lake Family Dentistry" />
+      <div class="image-caption">Our dentures are custom-crafted for each patient, ensuring a natural appearance and comfortable, secure fit.</div>
+    </div>
+
+    <p>Modern dentures bear little resemblance to the ill-fitting, obviously artificial appliances of the past. Today's dentures are fabricated from high-quality materials that closely mimic the natural translucency, colour variation, and texture of real teeth and gum tissue. We take detailed impressions and carefully assess your bite, facial proportions, and aesthetic preferences to create an appliance that fits well, functions effectively, and — most importantly — looks like your own natural teeth.</p>
+
+    <h3>Types of Dentures We Provide</h3>
+    <div class="type-grid">
+      <div class="type-card">
+        <div class="type-card-icon">😁</div>
+        <h4>Complete (Full) Dentures</h4>
+        <p>For patients who have lost all of their teeth in the upper or lower arch (or both). Rests on the gum tissue and is held in place by suction and the muscles of the mouth. Can be enhanced with dental implants for a more secure fit.</p>
+      </div>
+      <div class="type-card">
+        <div class="type-card-icon">🦷</div>
+        <h4>Partial Dentures</h4>
+        <p>For patients missing several teeth but retaining some natural teeth. A partial denture fills the gaps, prevents remaining teeth from shifting, and restores chewing function. Attaches to natural teeth with clasps or precision attachments.</p>
+      </div>
+      <div class="type-card">
+        <div class="type-card-icon">⏱️</div>
+        <h4>Immediate Dentures</h4>
+        <p>Placed immediately after extractions so you're never without teeth. Serve as a temporary solution while your gums heal and your permanent dentures are fabricated. Require more frequent adjustments as your gum shape changes during healing.</p>
+      </div>
+      <div class="type-card">
+        <div class="type-card-icon">🔩</div>
+        <h4>Implant-Supported Dentures</h4>
+        <p>Dentures anchored to dental implants for dramatically improved stability and retention. Eliminates slipping and discomfort, allows you to eat a wider range of foods, and helps preserve jaw bone. The most comfortable and functional denture option available.</p>
+      </div>
+    </div>
+
+    <h3>Benefits of Well-Fitted Dentures</h3>
+    <div class="benefits-list">
+      <div class="benefit-item"><div class="benefit-icon">😊</div><p>Restores your natural-looking smile</p></div>
+      <div class="benefit-item"><div class="benefit-icon">🍎</div><p>Enables comfortable eating again</p></div>
+      <div class="benefit-item"><div class="benefit-icon">🗣️</div><p>Improves speech clarity</p></div>
+      <div class="benefit-item"><div class="benefit-icon">👤</div><p>Supports facial muscles, reducing sagging</p></div>
+      <div class="benefit-item"><div class="benefit-icon">🦷</div><p>Prevents remaining teeth from shifting</p></div>
+      <div class="benefit-item"><div class="benefit-icon">💪</div><p>Restores confidence and quality of life</p></div>
+    </div>
+
+    <h3>The Denture Process — What to Expect</h3>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-body"><h4>Consultation & Treatment Planning</h4><p>We evaluate your oral health, discuss your goals, and recommend the most appropriate denture type. X-rays may be taken to assess the health of any remaining teeth and your jaw bone.</p></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-body"><h4>Impressions & Measurements</h4><p>Precise impressions of your mouth are taken, along with measurements of your bite and jaw relationship. These are sent to our dental lab to begin fabrication.</p></div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-body"><h4>Try-In Appointment</h4><p>A wax model or trial denture is created for you to try. This allows us to evaluate the fit, appearance, and bite before the final denture is completed — ensuring you are happy with the look and feel before we finalize anything.</p></div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-body"><h4>Delivery & Fitting</h4><p>Your finished denture is delivered and carefully fitted. We make any necessary adjustments to ensure optimal comfort and function. You'll receive detailed care instructions to keep your denture in excellent condition.</p></div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-body"><h4>Follow-Up & Ongoing Care</h4><p>Follow-up appointments are important to monitor fit as your gum tissue naturally changes over time. Dentures typically require relining every few years to maintain a proper fit.</p></div></div>
+    </div>
+
+    <h3>Frequently Asked Questions</h3>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">How long does it take to get dentures? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">The process typically takes 4–6 weeks from the initial consultation to receiving your final denture, including multiple appointments for impressions, try-ins, and fittings. Immediate dentures can be placed the same day as extractions, though they will require adjustments as healing progresses.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">Will dentures look natural? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">Yes — modern dentures are designed to look very natural. We carefully select tooth shades, shapes, and sizes that complement your facial features and look appropriate for your age. Most people around you will not be able to tell you're wearing a denture unless you tell them.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">Are dentures covered by dental insurance? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">Most dental insurance plans provide some coverage for dentures, typically 50% of the cost up to your annual maximum. Coverage varies significantly between plans, so we recommend confirming your benefits before treatment. Our team can assist you with the claims process.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">How do I care for my dentures? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">Rinse your denture after eating, brush it daily with a soft brush and denture cleanser (not regular toothpaste), and soak it overnight in water or a denture solution. Always handle over a folded towel or filled sink as dentures can break if dropped. Continue brushing your gums and any remaining natural teeth.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">Can I eat normally with dentures? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">Yes, though there is an adjustment period. Start with soft foods cut into small pieces, chewing on both sides simultaneously. Over time you'll be able to eat most foods comfortably. Some very hard or sticky foods (hard candies, very chewy foods) are best avoided with conventional dentures. Implant-supported dentures allow you to eat a much wider range of foods with greater confidence.</div>
+      </div>
+    </div>
+  </article>
+
+  <aside class="sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-card-header">😁 Book a Denture Consultation</div>
+      <div class="sidebar-card-body book-cta">
+        <p>Ready to restore your smile? Book a consultation and we'll find the best denture solution for your needs and budget.</p>
+        <a href="index.html#contact" class="btn-book">Request Consultation</a>
+        <a href="tel:7055231004" class="btn-call">📞 705-523-1004</a>
+      </div>
+    </div>
+    <div class="sidebar-card">
+      <div class="sidebar-card-header">🦷 Quick Facts</div>
+      <div class="sidebar-card-body">
+        <ul class="quick-facts">
+          <li><span class="label">Process Time</span><span class="value">4 – 6 weeks</span></li>
+          <li><span class="label">Types</span><span class="value">Full, Partial, Implant</span></li>
+          <li><span class="label">Lifespan</span><span class="value">5 – 8 years</span></li>
+          <li><span class="label">Reline</span><span class="value">Every 2 – 3 years</span></li>
+          <li><span class="label">Insurance</span><span class="value">Often ~50% covered</span></li>
+          <li><span class="label">Recovery</span><span class="value">Adjustment period 4–8 wks</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="sidebar-card">
+      <div class="sidebar-card-header">🩺 Other Services</div>
+      <div class="sidebar-card-body">
+        <ul class="services-list">
+          <li><a href="services-teeth-cleaning.html">🪥 Teeth Cleaning <span class="arrow">▶</span></a></li>
+          <li><a href="services-crowns.html">👑 Crowns <span class="arrow">▶</span></a></li>
+          <li><a href="services-implants.html">🦷 Dental Implants <span class="arrow">▶</span></a></li>
+          <li><a href="services-fillings.html">🔬 Fillings &amp; Composites <span class="arrow">▶</span></a></li>
+          <li><a href="services-whitening.html">✨ Teeth Whitening <span class="arrow">▶</span></a></li>
+          <li><a href="services-veneers.html">💎 Veneers <span class="arrow">▶</span></a></li>
+          <li><a href="services-mouthguards.html">🛡️ Mouth Guards <span class="arrow">▶</span></a></li>
+          <li><a href="services-rootcanal.html">🦠 Root Canal <span class="arrow">▶</span></a></li>
+          <li><a href="services-dentures.html" class="active">😁 Dentures <span class="arrow">▶</span></a></li>
+          <li><a href="services-emergency.html">🚨 Emergency Care <span class="arrow">▶</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<div class="cta-strip">
+  <h2>Ready to Smile With Confidence Again?</h2>
+  <p>Our team will guide you through every step of the denture process — comfortably, compassionately, and with beautiful results.</p>
+  <div class="cta-btns">
+    <a href="index.html#contact" class="btn-navy">📅 Book a Consultation</a>
+    <a href="tel:7055231004" class="btn-outline-navy">📞 Call Us Today</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">
+          <div class="logo-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.5 2 6 4.5 6 7c0 1.5.5 2.8 1.3 3.8L6 20c0 1.1.9 2 2 2 .7 0 1.3-.4 1.7-1L12 17l2.3 4c.4.6 1 1 1.7 1 1.1 0 2-.9 2-2l-1.3-9.2C17.5 9.8 18 8.5 18 7c0-2.5-2.5-5-6-5z"/></svg></div>
+          <div class="logo-text"><strong>LONG LAKE</strong><span>Family Dentistry</span></div>
+        </div>
+        <p>Providing exceptional dental care to the Sudbury community with compassion, expertise, and the latest technology.</p>
+      </div>
+      <div class="footer-col"><h4>Services</h4><ul>
+        <li><a href="services-teeth-cleaning.html">Teeth Cleaning</a></li>
+        <li><a href="services-implants.html">Dental Implants</a></li>
+        <li><a href="services-crowns.html">Crowns</a></li>
+        <li><a href="services-whitening.html">Teeth Whitening</a></li>
+        <li><a href="services-emergency.html">Emergency Care</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Quick Links</h4><ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="team.html">Our Team</a></li>
+        <li><a href="index.html#testimonials">Testimonials</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Contact</h4><ul>
+        <li><a href="#"># 1 - 2231 Long Lake Rd</a></li>
+        <li><a href="#">Sudbury, ON P3E 5H3</a></li>
+        <li><a href="tel:7055231004">705-523-1004</a></li>
+        <li><a href="mailto:info@longlakdental.ca">info@longlakdental.ca</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Long Lake Family Dentistry. All rights reserved.</span>
+      <span>Privacy Policy · Terms of Service</span>
+    </div>
+  </div>
+</footer>
+<script>
+  function toggleFaq(el) {
+    const item = el.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+</script>
+</body>
+</html>

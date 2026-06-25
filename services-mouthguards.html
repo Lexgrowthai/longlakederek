@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mouth Guards | Long Lake Family Dentistry</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --navy: #0d3b5e; --blue: #1a5f8a; --light-blue: #2980b9; --gold: #c8a84b; --text: #222; --muted: #666; --bg: #f7f9fc; --white: #fff; --border: #dde3ea; }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--white); line-height: 1.7; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    header { background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+    nav { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 14px 24px; }
+    .logo { display: flex; align-items: center; gap: 10px; }
+    .logo-icon { width: 40px; height: 40px; background: var(--navy); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+    .logo-icon svg { width: 24px; height: 24px; fill: white; }
+    .logo-text strong { display: block; font-size: 15px; color: var(--navy); font-weight: 800; }
+    .logo-text span { font-size: 11px; color: var(--muted); letter-spacing: 0.5px; }
+    .nav-links { display: flex; gap: 28px; font-size: 14px; font-weight: 500; list-style: none; }
+    .nav-links a:hover { color: var(--light-blue); }
+    .nav-links a.active { color: var(--light-blue); font-weight: 700; }
+    .btn-primary { background: var(--light-blue); color: white; padding: 10px 20px; border-radius: 6px; font-size: 13px; font-weight: 600; transition: background 0.2s; }
+    .btn-primary:hover { background: var(--navy); }
+    .breadcrumb { background: var(--bg); border-bottom: 1px solid var(--border); padding: 12px 24px; }
+    .breadcrumb-inner { max-width: 1200px; margin: 0 auto; font-size: 13px; color: var(--muted); display: flex; align-items: center; gap: 8px; }
+    .breadcrumb-inner a { color: var(--light-blue); }
+    .breadcrumb-inner a:hover { text-decoration: underline; }
+    .breadcrumb-sep { color: var(--border); }
+    .page-banner { background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%); color: white; padding: 72px 24px; text-align: center; position: relative; overflow: hidden; }
+    .page-banner::before { content: ''; position: absolute; top: -80px; right: -80px; width: 320px; height: 320px; border-radius: 50%; background: rgba(255,255,255,0.04); }
+    .page-banner::after { content: ''; position: absolute; bottom: -60px; left: -60px; width: 240px; height: 240px; border-radius: 50%; background: rgba(255,255,255,0.04); }
+    .page-banner .tag { display: inline-block; background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.9); font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 5px 16px; border-radius: 20px; margin-bottom: 18px; }
+    .page-banner h1 { font-size: 50px; font-weight: 800; line-height: 1.15; margin-bottom: 14px; }
+    .page-banner p { font-size: 17px; color: rgba(255,255,255,0.8); max-width: 520px; margin: 0 auto; }
+    .trust-bar { background: white; border-bottom: 1px solid var(--border); padding: 0 24px; }
+    .trust-bar-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: center; padding: 24px 0; }
+    .trust-stat { flex: 1; text-align: center; padding: 0 16px; }
+    .trust-stat-number { font-size: 28px; font-weight: 800; color: var(--navy); line-height: 1; margin-bottom: 4px; }
+    .trust-stat-label { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
+    .trust-stat-divider { width: 1px; height: 40px; background: var(--border); flex-shrink: 0; }
+    .content-wrap { max-width: 1200px; margin: 0 auto; padding: 72px 24px; display: grid; grid-template-columns: 1fr 380px; gap: 64px; align-items: start; }
+    .article h2 { font-size: 30px; font-weight: 800; color: var(--navy); margin-bottom: 8px; line-height: 1.25; }
+    .article .gold-bar { width: 48px; height: 4px; background: var(--gold); border-radius: 2px; margin-bottom: 28px; }
+    .article p { font-size: 16px; color: #444; margin-bottom: 22px; line-height: 1.8; }
+    .article h3 { font-size: 20px; font-weight: 700; color: var(--navy); margin: 36px 0 14px; }
+    .service-image-block { border-radius: 20px; overflow: hidden; box-shadow: 0 12px 40px rgba(0,0,0,0.12); margin: 36px 0; }
+    .service-image-block img { width: 100%; height: 380px; object-fit: cover; display: block; }
+    .image-caption { background: var(--navy); color: rgba(255,255,255,0.85); font-size: 13px; padding: 12px 18px; text-align: center; }
+    .benefits-list { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 8px 0 28px; }
+    .benefit-item { display: flex; align-items: flex-start; gap: 12px; background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; }
+    .benefit-icon { width: 32px; height: 32px; background: #ddeef8; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+    .benefit-item p { font-size: 13px; color: var(--text); font-weight: 600; margin: 0; line-height: 1.4; }
+    .steps { display: flex; flex-direction: column; gap: 20px; margin: 8px 0 28px; }
+    .step { display: flex; gap: 18px; align-items: flex-start; }
+    .step-num { width: 36px; height: 36px; background: var(--navy); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; flex-shrink: 0; }
+    .step-body h4 { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+    .step-body p { font-size: 14px; color: var(--muted); margin: 0; line-height: 1.6; }
+    .type-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 8px 0 28px; }
+    .type-card { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+    .type-card-icon { font-size: 28px; margin-bottom: 10px; }
+    .type-card h4 { font-size: 15px; font-weight: 800; color: var(--navy); margin-bottom: 6px; }
+    .type-card p { font-size: 13px; color: var(--muted); margin: 0; line-height: 1.5; }
+    .faq-list { display: flex; flex-direction: column; gap: 12px; margin: 8px 0 28px; }
+    .faq-item { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+    .faq-question { display: flex; justify-content: space-between; align-items: center; padding: 18px 20px; font-size: 15px; font-weight: 700; color: var(--navy); cursor: pointer; background: var(--bg); gap: 12px; }
+    .faq-question:hover { background: #e8f0f8; }
+    .faq-icon { font-size: 18px; font-weight: 400; color: var(--light-blue); flex-shrink: 0; transition: transform 0.3s; }
+    .faq-answer { padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.35s ease; font-size: 15px; color: #444; line-height: 1.7; }
+    .faq-item.open .faq-answer { max-height: 300px; padding: 0 20px 18px; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .sidebar { display: flex; flex-direction: column; gap: 24px; }
+    .sidebar-card { background: white; border: 1px solid var(--border); border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+    .sidebar-card-header { background: var(--navy); color: white; padding: 18px 22px; font-size: 15px; font-weight: 700; }
+    .sidebar-card-body { padding: 22px; }
+    .book-cta { text-align: center; }
+    .book-cta p { font-size: 14px; color: var(--muted); margin-bottom: 16px; line-height: 1.6; }
+    .btn-book { display: block; background: var(--light-blue); color: white; padding: 13px 20px; border-radius: 8px; font-size: 15px; font-weight: 700; text-align: center; margin-bottom: 10px; transition: background 0.2s; }
+    .btn-book:hover { background: var(--navy); }
+    .btn-call { display: block; background: transparent; color: var(--navy); padding: 12px 20px; border-radius: 8px; font-size: 15px; font-weight: 700; text-align: center; border: 2px solid var(--navy); transition: all 0.2s; }
+    .btn-call:hover { background: var(--navy); color: white; }
+    .quick-facts { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .quick-facts li { display: flex; justify-content: space-between; align-items: center; font-size: 14px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+    .quick-facts li:last-child { border-bottom: none; padding-bottom: 0; }
+    .quick-facts .label { color: var(--muted); }
+    .quick-facts .value { font-weight: 700; color: var(--navy); }
+    .services-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .services-list li a { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--text); padding: 9px 12px; border-radius: 8px; transition: background 0.15s, color 0.15s; font-weight: 500; }
+    .services-list li a:hover { background: var(--bg); color: var(--light-blue); }
+    .services-list li a.active { background: #ddeef8; color: var(--navy); font-weight: 700; }
+    .services-list li a .arrow { margin-left: auto; font-size: 12px; color: var(--muted); }
+    .cta-strip { background: var(--bg); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 64px 24px; text-align: center; }
+    .cta-strip h2 { font-size: 30px; font-weight: 800; color: var(--navy); margin-bottom: 12px; }
+    .cta-strip p { font-size: 16px; color: var(--muted); max-width: 480px; margin: 0 auto 28px; }
+    .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-navy { background: var(--navy); color: white; padding: 13px 28px; border-radius: 8px; font-size: 15px; font-weight: 700; transition: background 0.2s; }
+    .btn-navy:hover { background: var(--blue); }
+    .btn-outline-navy { background: transparent; color: var(--navy); padding: 13px 28px; border-radius: 8px; font-size: 15px; font-weight: 700; border: 2px solid var(--navy); transition: all 0.2s; }
+    .btn-outline-navy:hover { background: var(--navy); color: white; }
+    footer { background: #0a2d47; color: rgba(255,255,255,0.75); padding: 56px 24px 28px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    .footer-brand .logo-text strong { color: white; }
+    .footer-brand .logo-text span { color: rgba(255,255,255,0.5); }
+    .footer-brand p { font-size: 13px; margin-top: 14px; color: rgba(255,255,255,0.6); line-height: 1.6; }
+    .footer-col h4 { color: white; font-size: 14px; font-weight: 700; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul li a { font-size: 13px; color: rgba(255,255,255,0.65); transition: color 0.2s; }
+    .footer-col ul li a:hover { color: white; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; display: flex; justify-content: space-between; font-size: 12px; color: rgba(255,255,255,0.4); }
+    @media (max-width: 960px) { .content-wrap { grid-template-columns: 1fr; } .sidebar { order: -1; } .footer-grid { grid-template-columns: 1fr 1fr; } .nav-links { display: none; } }
+    @media (max-width: 600px) { .page-banner h1 { font-size: 32px; } .benefits-list, .type-grid { grid-template-columns: 1fr; } .footer-grid { grid-template-columns: 1fr; } .cta-btns { flex-direction: column; align-items: center; } }
+  </style>
+</head>
+<body>
+<header>
+  <nav>
+    <a href="index.html" class="logo">
+      <div class="logo-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.5 2 6 4.5 6 7c0 1.5.5 2.8 1.3 3.8L6 20c0 1.1.9 2 2 2 .7 0 1.3-.4 1.7-1L12 17l2.3 4c.4.6 1 1 1.7 1 1.1 0 2-.9 2-2l-1.3-9.2C17.5 9.8 18 8.5 18 7c0-2.5-2.5-5-6-5z"/></svg></div>
+      <div class="logo-text"><strong>LONG LAKE</strong><span>Family Dentistry</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="index.html#services" class="active">Services</a></li>
+      <li><a href="team.html">Our Team</a></li>
+      <li><a href="index.html#testimonials">Testimonials</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <a href="index.html#contact" class="btn-primary">Book Appointment</a>
+  </nav>
+</header>
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="index.html">Home</a><span class="breadcrumb-sep">›</span>
+    <a href="index.html#services">Services</a><span class="breadcrumb-sep">›</span>
+    <span>Mouth Guards</span>
+  </div>
+</div>
+<div class="page-banner">
+  <div class="tag">Protective Dentistry</div>
+  <h1>Custom Mouth Guards</h1>
+  <p>Precision-fitted guards that protect your teeth during sports and while you sleep — because prevention is always better than repair.</p>
+</div>
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <div class="trust-stat"><div class="trust-stat-number">20+</div><div class="trust-stat-label">Years of Experience</div></div>
+    <div class="trust-stat-divider"></div>
+    <div class="trust-stat"><div class="trust-stat-number">3</div><div class="trust-stat-label">Expert Dentists</div></div>
+    <div class="trust-stat-divider"></div>
+    <div class="trust-stat"><div class="trust-stat-number">Custom</div><div class="trust-stat-label">Fitted for You</div></div>
+    <div class="trust-stat-divider"></div>
+    <div class="trust-stat"><div class="trust-stat-number">✔</div><div class="trust-stat-label">Accepting New Patients</div></div>
+  </div>
+</div>
+<div class="content-wrap">
+  <article class="article">
+    <h2>Protect Your Smile Before Damage Happens</h2>
+    <div class="gold-bar"></div>
+    <p>Your teeth are irreplaceable — and while modern dentistry can do remarkable things to restore damaged teeth, nothing compares to preventing the damage in the first place. At Long Lake Family Dentistry, we provide two types of custom-fitted mouth guards: sports guards for athletes of all ages, and night guards for patients who grind or clench their teeth during sleep. Both are crafted from professional-grade materials using precise impressions of your own teeth, resulting in a fit that is dramatically more comfortable, effective, and durable than anything available over the counter.</p>
+    <div class="service-image-block">
+      <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=900&q=80&auto=format&fit=crop" alt="Custom mouth guard fitting at Long Lake Family Dentistry" />
+      <div class="image-caption">Our custom-fitted mouth guards provide superior protection and comfort compared to generic store-bought options.</div>
+    </div>
+    <p>Store-bought boil-and-bite guards are a poor substitute for a professionally made appliance. They are bulky, uncomfortable, interfere with breathing and speaking, and often fail to stay in place during activity — which means they offer far less protection when it matters most. A custom guard from our office fits precisely over your unique dental arch, stays securely in place, and is made from materials calibrated to absorb and distribute impact or grinding forces effectively.</p>
+
+    <h3>Two Types of Custom Guards We Provide</h3>
+    <div class="type-grid">
+      <div class="type-card">
+        <div class="type-card-icon">⚽</div>
+        <h4>Sports Mouth Guards</h4>
+        <p>Essential for contact and collision sports including hockey, football, rugby, basketball, martial arts, and more. Protects teeth, lips, cheeks, and jaw from impact injuries. Recommended for athletes of all ages.</p>
+      </div>
+      <div class="type-card">
+        <div class="type-card-icon">😴</div>
+        <h4>Night Guards (Occlusal Splints)</h4>
+        <p>For patients who grind (brux) or clench their teeth during sleep. Protects enamel from wear, reduces jaw muscle tension and TMJ pain, and prevents cracked and fractured teeth caused by chronic grinding.</p>
+      </div>
+    </div>
+
+    <h3>Signs You May Need a Night Guard</h3>
+    <div class="benefits-list">
+      <div class="benefit-item"><div class="benefit-icon">😣</div><p>Waking with jaw pain or headaches</p></div>
+      <div class="benefit-item"><div class="benefit-icon">🦷</div><p>Flattened, chipped, or worn tooth surfaces</p></div>
+      <div class="benefit-item"><div class="benefit-icon">👂</div><p>Earache or facial muscle soreness</p></div>
+      <div class="benefit-item"><div class="benefit-icon">😬</div><p>Partner reports grinding sounds at night</p></div>
+      <div class="benefit-item"><div class="benefit-icon">💥</div><p>Cracked or fractured teeth without injury</p></div>
+      <div class="benefit-item"><div class="benefit-icon">😰</div><p>Increased tooth sensitivity to temperature</p></div>
+    </div>
+
+    <h3>Getting Your Custom Guard — What to Expect</h3>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-body"><h4>Consultation & Assessment</h4><p>We assess your teeth, bite, and discuss your specific needs — whether that's a sport you play or grinding symptoms you've noticed. We'll recommend the most appropriate guard type and material thickness.</p></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-body"><h4>Dental Impressions</h4><p>Precise impressions of your upper and lower teeth are taken. These are sent to a professional dental lab where your guard is custom-fabricated to match your exact dental anatomy.</p></div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-body"><h4>Fitting & Adjustments</h4><p>When your guard is ready (typically 1–2 weeks), you return for a fitting. We check the fit, comfort, and bite — and make any minor adjustments needed to ensure it feels perfect.</p></div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-body"><h4>Care Instructions</h4><p>We walk you through how to clean and store your guard to maximize its lifespan. With proper care, a custom guard typically lasts 2–5 years.</p></div></div>
+    </div>
+
+    <h3>Frequently Asked Questions</h3>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">Why not just buy a boil-and-bite guard from the pharmacy? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">Store-bought guards are one-size-fits-all and typically bulky, loose, and uncomfortable. They can actually interfere with breathing and speech, and provide inconsistent protection. A custom guard fits precisely, stays in place, and is made from materials calibrated to the forces specific to your situation.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">How do I know if I grind my teeth at night? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">Common signs include waking with jaw soreness, headaches at the temples, worn or flattened teeth, increased tooth sensitivity, and a partner reporting grinding sounds while you sleep. Your dentist can also identify signs of bruxism during a routine check-up by examining your tooth surfaces.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">Are mouth guards covered by dental insurance? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">Coverage varies by plan. Night guards for bruxism are often partially covered under restorative or preventive benefits. Sports guards may or may not be covered. We recommend calling your insurer ahead of time, and our team is happy to help you understand and maximize your benefits.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">My child plays sports — at what age should they have a guard? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">As soon as a child begins participating in contact or collision sports. Even young children with primary teeth benefit from protection, and custom guards can be made for kids. As their teeth change, the guard will need to be updated — typically every 1–2 years for growing children.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">How long does a custom mouth guard last? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">With proper care, adult sports and night guards typically last 2–5 years. Night guards used by heavy grinders may wear through faster. We check the condition of your guard at each visit and will advise you when a replacement is warranted.</div>
+      </div>
+    </div>
+  </article>
+
+  <aside class="sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-card-header">🛡️ Get Your Custom Guard</div>
+      <div class="sidebar-card-body book-cta">
+        <p>Protect your smile before damage occurs. Book your fitting appointment today.</p>
+        <a href="index.html#contact" class="btn-book">Request Appointment</a>
+        <a href="tel:7055231004" class="btn-call">📞 705-523-1004</a>
+      </div>
+    </div>
+    <div class="sidebar-card">
+      <div class="sidebar-card-header">🦷 Quick Facts</div>
+      <div class="sidebar-card-body">
+        <ul class="quick-facts">
+          <li><span class="label">Appointments</span><span class="value">2 visits</span></li>
+          <li><span class="label">Lab Time</span><span class="value">1 – 2 weeks</span></li>
+          <li><span class="label">Lifespan</span><span class="value">2 – 5 years</span></li>
+          <li><span class="label">Types</span><span class="value">Sports &amp; Night</span></li>
+          <li><span class="label">Suitable For</span><span class="value">All ages</span></li>
+          <li><span class="label">Insurance</span><span class="value">Often partially covered</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="sidebar-card">
+      <div class="sidebar-card-header">🩺 Other Services</div>
+      <div class="sidebar-card-body">
+        <ul class="services-list">
+          <li><a href="services-teeth-cleaning.html">🪥 Teeth Cleaning <span class="arrow">▶</span></a></li>
+          <li><a href="services-crowns.html">👑 Crowns <span class="arrow">▶</span></a></li>
+          <li><a href="services-implants.html">🦷 Dental Implants <span class="arrow">▶</span></a></li>
+          <li><a href="services-fillings.html">🔬 Fillings &amp; Composites <span class="arrow">▶</span></a></li>
+          <li><a href="services-whitening.html">✨ Teeth Whitening <span class="arrow">▶</span></a></li>
+          <li><a href="services-veneers.html">💎 Veneers <span class="arrow">▶</span></a></li>
+          <li><a href="services-mouthguards.html" class="active">🛡️ Mouth Guards <span class="arrow">▶</span></a></li>
+          <li><a href="services-rootcanal.html">🦠 Root Canal <span class="arrow">▶</span></a></li>
+          <li><a href="services-dentures.html">😁 Dentures <span class="arrow">▶</span></a></li>
+          <li><a href="services-emergency.html">🚨 Emergency Care <span class="arrow">▶</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<div class="cta-strip">
+  <h2>Protect Your Teeth Before It's Too Late</h2>
+  <p>A custom mouth guard is one of the most cost-effective investments you can make in your long-term dental health.</p>
+  <div class="cta-btns">
+    <a href="index.html#contact" class="btn-navy">📅 Book an Appointment</a>
+    <a href="tel:7055231004" class="btn-outline-navy">📞 Call Us Today</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">
+          <div class="logo-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.5 2 6 4.5 6 7c0 1.5.5 2.8 1.3 3.8L6 20c0 1.1.9 2 2 2 .7 0 1.3-.4 1.7-1L12 17l2.3 4c.4.6 1 1 1.7 1 1.1 0 2-.9 2-2l-1.3-9.2C17.5 9.8 18 8.5 18 7c0-2.5-2.5-5-6-5z"/></svg></div>
+          <div class="logo-text"><strong>LONG LAKE</strong><span>Family Dentistry</span></div>
+        </div>
+        <p>Providing exceptional dental care to the Sudbury community with compassion, expertise, and the latest technology.</p>
+      </div>
+      <div class="footer-col"><h4>Services</h4><ul>
+        <li><a href="services-teeth-cleaning.html">Teeth Cleaning</a></li>
+        <li><a href="services-implants.html">Dental Implants</a></li>
+        <li><a href="services-crowns.html">Crowns</a></li>
+        <li><a href="services-whitening.html">Teeth Whitening</a></li>
+        <li><a href="services-emergency.html">Emergency Care</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Quick Links</h4><ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="team.html">Our Team</a></li>
+        <li><a href="index.html#testimonials">Testimonials</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Contact</h4><ul>
+        <li><a href="#"># 1 - 2231 Long Lake Rd</a></li>
+        <li><a href="#">Sudbury, ON P3E 5H3</a></li>
+        <li><a href="tel:7055231004">705-523-1004</a></li>
+        <li><a href="mailto:info@longlakdental.ca">info@longlakdental.ca</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Long Lake Family Dentistry. All rights reserved.</span>
+      <span>Privacy Policy · Terms of Service</span>
+    </div>
+  </div>
+</footer>
+<script>
+  function toggleFaq(el) {
+    const item = el.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+</script>
+</body>
+</html>
