@@ -1,0 +1,21 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/about", "destination": "/about.html" },
+    { "source": "/team", "destination": "/team.html" },
+    { "source": "/our-office", "destination": "/our-office.html" },
+    { "source": "/services/teeth-cleaning", "destination": "/services-teeth-cleaning.html" },
+    { "source": "/services/crowns", "destination": "/services-crowns.html" },
+    { "source": "/services/implants", "destination": "/services-implants.html" },
+    { "source": "/services/veneers", "destination": "/services-veneers.html" },
+    { "source": "/services/fillings", "destination": "/services-fillings.html" },
+    { "source": "/services/mouthguards", "destination": "/services-mouthguards.html" },
+    { "source": "/services/digital-xray", "destination": "/services-digital-xray.html" },
+    { "source": "/services/extractions", "destination": "/services-extractions.html" },
+    { "source": "/services/bridges", "destination": "/services-bridges.html" },
+    { "source": "/services/root-canal", "destination": "/services-rootcanal.html" },
+    { "source": "/services/dentures", "destination": "/services-dentures.html" },
+    { "source": "/services/whitening", "destination": "/services-whitening.html" },
+    { "source": "/services/emergency", "destination": "/services-emergency.html" }
+  ]
+}
