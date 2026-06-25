@@ -18,6 +18,7 @@
     .logo-icon svg { width: 24px; height: 24px; fill: white; }
     .logo-text strong { display: block; font-size: 15px; color: var(--navy); font-weight: 800; }
     .logo-text span { font-size: 11px; color: var(--muted); letter-spacing: 0.5px; }
+    .nav-links li { position: relative; }
     .nav-links { display: flex; gap: 28px; font-size: 14px; font-weight: 500; list-style: none; }
     .nav-links a:hover { color: var(--light-blue); }
     .nav-links a.active { color: var(--light-blue); font-weight: 700; }
@@ -110,7 +111,60 @@
     .footer-col ul li a:hover { color: white; }
     .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; display: flex; justify-content: space-between; font-size: 12px; color: rgba(255,255,255,0.4); }
     @media (max-width: 960px) { .content-wrap { grid-template-columns: 1fr; } .sidebar { order: -1; } .footer-grid { grid-template-columns: 1fr 1fr; } .nav-links { display: none; } }
-    @media (max-width: 600px) { .page-banner h1 { font-size: 32px; } .benefits-list { grid-template-columns: 1fr; } .footer-grid { grid-template-columns: 1fr; } .cta-btns { flex-direction: column; align-items: center; } }
+    @media (max-width: 600px) { .page-banner h1 { font-size: 32px; } .benefits-list { grid-template-columns: 1fr; } .footer-grid { grid-template-columns: 1fr; } .cta-btns { flex-direction: column; align-items: center; } }    .dropdown-arrow { font-size: 10px; transition: transform 0.2s; }
+    .nav-links li:hover .dropdown-arrow { transform: rotate(180deg); }
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+      min-width: 220px;
+      padding: 8px;
+      padding-top: 18px;
+      margin-top: 0;
+      z-index: 200;
+    }
+    .nav-links li::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      height: 18px;
+    }
+    .dropdown::before {
+      content: '';
+      position: absolute;
+      top: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 12px; height: 12px;
+      background: white;
+      border-left: 1px solid var(--border);
+      border-top: 1px solid var(--border);
+      rotate: 45deg;
+    }
+    .nav-links li:hover .dropdown { display: block; }
+    .dropdown a {
+      display: flex !important;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text) !important;
+      transition: background 0.15s;
+      white-space: nowrap;
+    }
+    .dropdown a:hover { background: var(--bg); color: var(--light-blue) !important; }
+    .dropdown-icon { font-size: 16px; width: 28px; text-align: center; }
   </style>
 </head>
 <body>
@@ -123,7 +177,23 @@
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="our-office.html">Our Office</a></li>
-      <li><a href="index.html#services" class="active">Services</a></li>
+      <li style="position:relative;"><a href="index.html#services">Services <span class="dropdown-arrow">&#9662;</span></a>
+        <div class="dropdown">
+          <a href="services-teeth-cleaning.html"><span class="dropdown-icon">&#x1FAA5;</span> Teeth Cleaning</a>
+          <a href="services-crowns.html"><span class="dropdown-icon">&#x1F451;</span> Crowns</a>
+          <a href="services-implants.html"><span class="dropdown-icon">&#x1F9B7;</span> Dental Implants</a>
+          <a href="services-veneers.html"><span class="dropdown-icon">&#x1F48E;</span> Veneers</a>
+          <a href="services-fillings.html"><span class="dropdown-icon">&#x1F52C;</span> Fillings &amp; Composites</a>
+          <a href="services-mouthguards.html"><span class="dropdown-icon">&#x1F6E1;&#xFE0F;</span> Mouth Guards</a>
+          <a href="services-digital-xray.html"><span class="dropdown-icon">&#x1F4E1;</span> Digital X-Rays</a>
+          <a href="services-extractions.html"><span class="dropdown-icon">&#x1F9B7;</span> Tooth Extractions</a>
+          <a href="services-bridges.html"><span class="dropdown-icon">&#x1F517;</span> Dental Bridges</a>
+          <a href="services-rootcanal.html"><span class="dropdown-icon">&#x1F9A0;</span> Root Canal</a>
+          <a href="services-dentures.html"><span class="dropdown-icon">&#x1F601;</span> Dentures</a>
+          <a href="services-whitening.html"><span class="dropdown-icon">&#x2728;</span> Teeth Whitening</a>
+          <a href="services-emergency.html"><span class="dropdown-icon">&#x1F6A8;</span> Emergency Care</a>
+        </div>
+      </li>
       <li><a href="team.html">Our Team</a></li>
       <li><a href="index.html#testimonials">Testimonials</a></li>
       <li><a href="index.html#contact">Contact</a></li>
