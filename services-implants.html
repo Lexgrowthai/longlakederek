@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dental Implants | Long Lake Family Dentistry</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0d3b5e; --blue: #1a5f8a; --light-blue: #2980b9;
+      --gold: #c8a84b; --text: #222; --muted: #666;
+      --bg: #f7f9fc; --white: #fff; --border: #dde3ea;
+    }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--white); line-height: 1.7; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    header { background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+    nav { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 14px 24px; }
+    .logo { display: flex; align-items: center; gap: 10px; }
+    .logo-icon { width: 40px; height: 40px; background: var(--navy); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+    .logo-icon svg { width: 24px; height: 24px; fill: white; }
+    .logo-text strong { display: block; font-size: 15px; color: var(--navy); font-weight: 800; }
+    .logo-text span { font-size: 11px; color: var(--muted); letter-spacing: 0.5px; }
+    .nav-links { display: flex; gap: 28px; font-size: 14px; font-weight: 500; list-style: none; }
+    .nav-links a:hover { color: var(--light-blue); }
+    .nav-links a.active { color: var(--light-blue); font-weight: 700; }
+    .btn-primary { background: var(--light-blue); color: white; padding: 10px 20px; border-radius: 6px; font-size: 13px; font-weight: 600; border: none; cursor: pointer; transition: background 0.2s; }
+    .btn-primary:hover { background: var(--navy); }
+
+    .breadcrumb { background: var(--bg); border-bottom: 1px solid var(--border); padding: 12px 24px; }
+    .breadcrumb-inner { max-width: 1200px; margin: 0 auto; font-size: 13px; color: var(--muted); display: flex; align-items: center; gap: 8px; }
+    .breadcrumb-inner a { color: var(--light-blue); }
+    .breadcrumb-inner a:hover { text-decoration: underline; }
+    .breadcrumb-sep { color: var(--border); }
+
+    .page-banner { background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%); color: white; padding: 72px 24px; text-align: center; position: relative; overflow: hidden; }
+    .page-banner::before { content: ''; position: absolute; top: -80px; right: -80px; width: 320px; height: 320px; border-radius: 50%; background: rgba(255,255,255,0.04); }
+    .page-banner::after { content: ''; position: absolute; bottom: -60px; left: -60px; width: 240px; height: 240px; border-radius: 50%; background: rgba(255,255,255,0.04); }
+    .page-banner .tag { display: inline-block; background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.9); font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 5px 16px; border-radius: 20px; margin-bottom: 18px; }
+    .page-banner h1 { font-size: 50px; font-weight: 800; line-height: 1.15; margin-bottom: 14px; }
+    .page-banner p { font-size: 17px; color: rgba(255,255,255,0.8); max-width: 520px; margin: 0 auto; }
+
+    .content-wrap { max-width: 1200px; margin: 0 auto; padding: 72px 24px; display: grid; grid-template-columns: 1fr 380px; gap: 64px; align-items: start; }
+
+    .article h2 { font-size: 30px; font-weight: 800; color: var(--navy); margin-bottom: 8px; line-height: 1.25; }
+    .article .gold-bar { width: 48px; height: 4px; background: var(--gold); border-radius: 2px; margin-bottom: 28px; }
+    .article p { font-size: 16px; color: #444; margin-bottom: 22px; line-height: 1.8; }
+    .article h3 { font-size: 20px; font-weight: 700; color: var(--navy); margin: 36px 0 14px; }
+
+    .service-image-block { border-radius: 20px; overflow: hidden; box-shadow: 0 12px 40px rgba(0,0,0,0.12); margin: 36px 0; }
+    .service-image-block img { width: 100%; height: 380px; object-fit: cover; display: block; }
+    .image-caption { background: var(--navy); color: rgba(255,255,255,0.85); font-size: 13px; padding: 12px 18px; text-align: center; }
+
+    .benefits-list { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 8px 0 28px; }
+    .benefit-item { display: flex; align-items: flex-start; gap: 12px; background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; }
+    .benefit-icon { width: 32px; height: 32px; background: #ddeef8; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+    .benefit-item p { font-size: 13px; color: var(--text); font-weight: 600; margin: 0; line-height: 1.4; }
+
+    .steps { display: flex; flex-direction: column; gap: 20px; margin: 8px 0 28px; }
+    .step { display: flex; gap: 18px; align-items: flex-start; }
+    .step-num { width: 36px; height: 36px; background: var(--navy); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; flex-shrink: 0; }
+    .step-body h4 { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+    .step-body p { font-size: 14px; color: var(--muted); margin: 0; line-height: 1.6; }
+
+    .compare-table { width: 100%; border-collapse: collapse; margin: 8px 0 28px; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
+    .compare-table thead { background: var(--navy); color: white; }
+    .compare-table thead th { padding: 14px 16px; font-size: 13px; font-weight: 700; text-align: left; }
+    .compare-table tbody tr:nth-child(even) { background: var(--bg); }
+    .compare-table tbody tr:nth-child(odd) { background: white; }
+    .compare-table tbody td { padding: 12px 16px; font-size: 13px; color: var(--text); border-bottom: 1px solid var(--border); }
+    .compare-table tbody td:first-child { font-weight: 600; color: var(--navy); }
+    .check { color: #27ae60; font-weight: 700; }
+    .cross { color: #e74c3c; font-weight: 700; }
+
+    .sidebar { display: flex; flex-direction: column; gap: 24px; }
+    .sidebar-card { background: white; border: 1px solid var(--border); border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+    .sidebar-card-header { background: var(--navy); color: white; padding: 18px 22px; font-size: 15px; font-weight: 700; }
+    .sidebar-card-body { padding: 22px; }
+
+    .book-cta { text-align: center; }
+    .book-cta p { font-size: 14px; color: var(--muted); margin-bottom: 16px; line-height: 1.6; }
+    .btn-book { display: block; background: var(--light-blue); color: white; padding: 13px 20px; border-radius: 8px; font-size: 15px; font-weight: 700; text-align: center; margin-bottom: 10px; transition: background 0.2s; }
+    .btn-book:hover { background: var(--navy); }
+    .btn-call { display: block; background: transparent; color: var(--navy); padding: 12px 20px; border-radius: 8px; font-size: 15px; font-weight: 700; text-align: center; border: 2px solid var(--navy); transition: all 0.2s; }
+    .btn-call:hover { background: var(--navy); color: white; }
+
+    .quick-facts { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .quick-facts li { display: flex; justify-content: space-between; align-items: center; font-size: 14px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+    .quick-facts li:last-child { border-bottom: none; padding-bottom: 0; }
+    .quick-facts .label { color: var(--muted); }
+    .quick-facts .value { font-weight: 700; color: var(--navy); }
+
+    .doctor-mini { display: flex; gap: 14px; align-items: center; }
+    .doctor-mini img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; object-position: center top; border: 2px solid var(--border); }
+    .doctor-mini h4 { font-size: 15px; font-weight: 700; color: var(--navy); }
+    .doctor-mini span { font-size: 12px; color: var(--muted); }
+
+    .services-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .services-list li a { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--text); padding: 9px 12px; border-radius: 8px; transition: background 0.15s, color 0.15s; font-weight: 500; }
+    .services-list li a:hover { background: var(--bg); color: var(--light-blue); }
+    .services-list li a.active { background: #ddeef8; color: var(--navy); font-weight: 700; }
+    .services-list li a .arrow { margin-left: auto; font-size: 12px; color: var(--muted); }
+
+    .cta-strip { background: var(--bg); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 64px 24px; text-align: center; }
+    .cta-strip h2 { font-size: 30px; font-weight: 800; color: var(--navy); margin-bottom: 12px; }
+    .cta-strip p { font-size: 16px; color: var(--muted); max-width: 480px; margin: 0 auto 28px; }
+    .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-navy { background: var(--navy); color: white; padding: 13px 28px; border-radius: 8px; font-size: 15px; font-weight: 700; transition: background 0.2s; }
+    .btn-navy:hover { background: var(--blue); }
+    .btn-outline-navy { background: transparent; color: var(--navy); padding: 13px 28px; border-radius: 8px; font-size: 15px; font-weight: 700; border: 2px solid var(--navy); transition: all 0.2s; }
+    .btn-outline-navy:hover { background: var(--navy); color: white; }
+
+    footer { background: #0a2d47; color: rgba(255,255,255,0.75); padding: 56px 24px 28px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    .footer-brand .logo-text strong { color: white; }
+    .footer-brand .logo-text span { color: rgba(255,255,255,0.5); }
+    .footer-brand p { font-size: 13px; margin-top: 14px; color: rgba(255,255,255,0.6); line-height: 1.6; }
+    .footer-col h4 { color: white; font-size: 14px; font-weight: 700; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul li a { font-size: 13px; color: rgba(255,255,255,0.65); transition: color 0.2s; }
+    .footer-col ul li a:hover { color: white; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; display: flex; justify-content: space-between; font-size: 12px; color: rgba(255,255,255,0.4); }
+
+    /* ── TRUST BAR ── */
+    .trust-bar { background: white; border-bottom: 1px solid var(--border); padding: 0 24px; }
+    .trust-bar-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: center; padding: 24px 0; }
+    .trust-stat { flex: 1; text-align: center; padding: 0 16px; }
+    .trust-stat-number { font-size: 28px; font-weight: 800; color: var(--navy); line-height: 1; margin-bottom: 4px; }
+    .trust-stat-label { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
+    .trust-stat-divider { width: 1px; height: 40px; background: var(--border); flex-shrink: 0; }
+
+    @media (max-width: 960px) {
+      .content-wrap { grid-template-columns: 1fr; }
+      .sidebar { order: -1; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .nav-links { display: none; }
+    }
+    @media (max-width: 600px) {
+      .page-banner h1 { font-size: 32px; }
+      .benefits-list { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .cta-btns { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="index.html" class="logo">
+      <img src="LONG-LAKE- LOGO.png" alt="Long Lake Family Dentistry" style="height:56px; width:auto; display:block;" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="index.html#services" class="active">Services</a></li>
+      <li><a href="team.html">Our Team</a></li>
+      <li><a href="index.html#testimonials">Testimonials</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <a href="index.html#contact" class="btn-primary">Book Appointment</a>
+  </nav>
+</header>
+
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="index.html">Home</a><span class="breadcrumb-sep">›</span>
+    <a href="index.html#services">Services</a><span class="breadcrumb-sep">›</span>
+    <span>Dental Implants</span>
+  </div>
+</div>
+
+<div class="page-banner">
+  <div class="tag">Tooth Replacement</div>
+  <h1>Dental Implants</h1>
+  <p>The gold standard in permanent tooth replacement — restoring your smile, confidence, and quality of life.</p>
+</div>
+
+<!-- ── TRUST BAR ── -->
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <div class="trust-stat"><div class="trust-stat-number">20+</div><div class="trust-stat-label">Years of Experience</div></div>
+    <div class="trust-stat-divider"></div>
+    <div class="trust-stat"><div class="trust-stat-number">3</div><div class="trust-stat-label">Expert Dentists</div></div>
+    <div class="trust-stat-divider"></div>
+    <div class="trust-stat"><div class="trust-stat-number">12</div><div class="trust-stat-label">Services Offered</div></div>
+    <div class="trust-stat-divider"></div>
+    <div class="trust-stat"><div class="trust-stat-number">✔</div><div class="trust-stat-label">Accepting New Patients</div></div>
+  </div>
+</div>
+
+<div class="content-wrap">
+  <article class="article">
+
+    <h2>A Permanent Solution for Missing Teeth</h2>
+    <div class="gold-bar"></div>
+
+    <p>Losing a tooth — whether through injury, decay, or gum disease — affects far more than your appearance. It changes the way you eat, the way you speak, and the way you feel about yourself. Over time, a missing tooth also causes the surrounding bone to deteriorate and neighbouring teeth to shift out of alignment, creating a cascade of oral health complications that become increasingly complex and costly to address. At Long Lake Family Dentistry, we offer dental implants as the most advanced, durable, and life-like solution available for replacing missing teeth.</p>
+
+    <div class="service-image-block">
+      <img
+        src="ChatGPT Image Jun 19, 2026, 10_14_51 PM.png"
+        alt="Dental implant consultation at Long Lake Family Dentistry"
+      />
+      <div class="image-caption">Dental implants look, feel, and function just like your natural teeth — giving you back your smile and your confidence.</div>
+    </div>
+
+    <p>A dental implant is a small titanium post that is surgically placed into the jawbone, where it functions as an artificial tooth root. Titanium is uniquely biocompatible — over a period of several months, the implant fuses with the surrounding bone through a natural process called osseointegration. This creates an incredibly stable, permanent foundation onto which a custom-made porcelain crown is attached, producing a replacement tooth that looks, feels, and functions exactly like a natural tooth.</p>
+
+    <p>Unlike dentures or bridges, a dental implant is a standalone restoration. It does not rely on neighbouring teeth for support, does not require adhesives, and does not shift or slip when you eat or speak. Because the implant integrates directly with the jawbone, it also stimulates the bone in the same way a natural tooth root does — preventing the bone loss that inevitably follows tooth extraction. This preservation of bone structure helps maintain the natural contours of your face and jaw for decades to come.</p>
+
+    <h3>Why Choose Dental Implants?</h3>
+
+    <div class="benefits-list">
+      <div class="benefit-item">
+        <div class="benefit-icon">♾️</div>
+        <p>Permanent solution that can last a lifetime</p>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon">🦷</div>
+        <p>Looks, feels, and functions like a real tooth</p>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon">🦴</div>
+        <p>Prevents jawbone loss after extraction</p>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon">😁</div>
+        <p>No impact on neighbouring healthy teeth</p>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon">🍽️</div>
+        <p>Eat any food with full confidence</p>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon">🧹</div>
+        <p>Easy to clean — brush and floss normally</p>
+      </div>
+    </div>
+
+    <h3>Implants vs. Other Tooth Replacement Options</h3>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Implant</th>
+          <th>Bridge</th>
+          <th>Denture</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Looks natural</td><td class="check">✔ Yes</td><td class="check">✔ Yes</td><td>Varies</td></tr>
+        <tr><td>Preserves bone</td><td class="check">✔ Yes</td><td class="cross">✘ No</td><td class="cross">✘ No</td></tr>
+        <tr><td>Affects other teeth</td><td class="check">✔ No</td><td class="cross">✘ Yes</td><td class="cross">✘ Sometimes</td></tr>
+        <tr><td>Removable</td><td class="check">✔ No</td><td class="check">✔ No</td><td class="cross">✘ Yes</td></tr>
+        <tr><td>Expected lifespan</td><td><strong>20+ years</strong></td><td>10–15 years</td><td>5–10 years</td></tr>
+        <tr><td>Feels like natural tooth</td><td class="check">✔ Yes</td><td>Mostly</td><td class="cross">✘ No</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Your Implant Journey — Step by Step</h3>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h4>Comprehensive Consultation &amp; Planning</h4>
+          <p>We conduct a thorough oral examination, including 3D cone beam imaging, to assess your bone density, gum health, and bite alignment. This allows us to create a precise, personalised implant treatment plan tailored to you.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h4>Implant Placement Surgery</h4>
+          <p>Under local anaesthetic — with sedation options available for nervous patients — the titanium implant post is gently placed into the jawbone. The procedure is more comfortable than most patients expect, and most return to normal activities within a day or two.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h4>Osseointegration &amp; Healing</h4>
+          <p>Over the following 3 to 6 months, the implant naturally fuses with the surrounding bone. During this period, you may wear a temporary restoration so you never have to go without a tooth. We monitor your progress closely at each check-in appointment.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <h4>Abutment Placement</h4>
+          <p>Once osseointegration is complete, a small connector piece called an abutment is attached to the implant. This is a minor procedure that forms the anchor point for your final crown restoration.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <h4>Custom Crown Fitting</h4>
+          <p>Your final porcelain crown is precision-crafted to match the exact shape, size, and colour of your surrounding natural teeth. Once fitted and adjusted for a perfect bite, your new tooth is complete — indistinguishable from the real thing.</p>
+        </div>
+      </div>
+    </div>
+
+    <p>With proper care, dental implants can last 20 years or more — often a lifetime. They require no special maintenance beyond your regular brushing, flossing, and routine dental visits. For most patients, the investment in a dental implant is the last tooth replacement they will ever need to make for that tooth.</p>
+
+    <p>If you are living with one or more missing teeth and want to explore the best permanent solution available, we invite you to schedule a consultation with our team at Long Lake Family Dentistry. We will take the time to thoroughly assess your situation, answer every question, and help you decide if implants are the right choice for your health, your smile, and your life. A complete, confident smile is closer than you think.</p>
+
+  </article>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-card">
+      <div class="sidebar-card-header">📅 Book a Consultation</div>
+      <div class="sidebar-card-body book-cta">
+        <p>Find out if dental implants are right for you. Book a no-pressure consultation with our experienced team today.</p>
+        <a href="index.html#contact" class="btn-book">Request Appointment</a>
+        <a href="tel:7055231004" class="btn-call">📞 705-523-1004</a>
+      </div>
+    </div>
+
+    <div class="sidebar-card">
+      <div class="sidebar-card-header">🦷 Quick Facts</div>
+      <div class="sidebar-card-body">
+        <ul class="quick-facts">
+          <li><span class="label">Treatment Time</span><span class="value">3 – 6 months</span></li>
+          <li><span class="label">Appointments</span><span class="value">Multiple visits</span></li>
+          <li><span class="label">Anaesthetic</span><span class="value">Local / Sedation</span></li>
+          <li><span class="label">Success Rate</span><span class="value">95 – 98%</span></li>
+          <li><span class="label">Lifespan</span><span class="value">20+ years</span></li>
+          <li><span class="label">Insurance</span><span class="value">Partial coverage</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sidebar-card">
+      <div class="sidebar-card-header">👨‍⚕️ Your Dentists</div>
+      <div class="sidebar-card-body" style="display:flex; flex-direction:column; gap:16px;">
+        <div class="doctor-mini">
+          <img src="dr-derek-lewis-420 (1).jpg" alt="Dr. Derek Lewis" />
+          <div><h4>Dr. Derek Lewis</h4><span>Principal Dentist &amp; Founder</span></div>
+        </div>
+        <div class="doctor-mini">
+          <img src="NiyathiBalakrishna -Dentist.jpg" alt="Dr. Niyathi Balakrishna" />
+          <div><h4>Dr. Niyathi Balakrishna</h4><span>Associate Dentist</span></div>
+        </div>
+        <div class="doctor-mini">
+          <img src="Kaushal Rao.jpg" alt="Dr. Kaushal Rao" />
+          <div><h4>Dr. Kaushal Rao</h4><span>Associate Dentist</span></div>
+        </div>
+        <a href="team.html" style="font-size:13px; color:var(--light-blue); font-weight:600; text-align:center; display:block;">View Full Team →</a>
+      </div>
+    </div>
+
+    <div class="sidebar-card">
+      <div class="sidebar-card-header">🩺 Other Services</div>
+      <div class="sidebar-card-body">
+        <ul class="services-list">
+          <li><a href="services-teeth-cleaning.html">🪥 Teeth Cleaning <span class="arrow">▶</span></a></li>
+          <li><a href="services-crowns.html">👑 Crowns <span class="arrow">▶</span></a></li>
+          <li><a href="services-implants.html" class="active">🦷 Dental Implants <span class="arrow">▶</span></a></li>
+          <li><a href="#">🔬 Fillings &amp; Composites <span class="arrow">▶</span></a></li>
+          <li><a href="#">🛡️ Mouth Guards <span class="arrow">▶</span></a></li>
+          <li><a href="#">📡 Digital X-Rays <span class="arrow">▶</span></a></li>
+          <li><a href="#">🚨 Emergency Care <span class="arrow">▶</span></a></li>
+        </ul>
+      </div>
+    </div>
+
+  </aside>
+</div>
+
+<div class="cta-strip">
+  <h2>Ready to Restore Your Complete Smile?</h2>
+  <p>Dental implants are the most natural, permanent solution for missing teeth. Let's find out if they're right for you.</p>
+  <div class="cta-btns">
+    <a href="index.html#contact" class="btn-navy">📅 Book an Appointment</a>
+    <a href="tel:7055231004" class="btn-outline-navy">📞 Call Us Today</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">
+          <img src="LONG-LAKE- LOGO.png" alt="Long Lake Family Dentistry" style="height:56px; width:auto; display:block; filter:brightness(0) invert(1);" />
+        </div>
+        <p>Providing exceptional dental care to the Sudbury community with compassion, expertise, and the latest technology.</p>
+      </div>
+      <div class="footer-col"><h4>Services</h4><ul>
+        <li><a href="services-teeth-cleaning.html">Teeth Cleaning</a></li>
+        <li><a href="services-implants.html">Dental Implants</a></li>
+        <li><a href="services-crowns.html">Crowns</a></li>
+        <li><a href="#">Teeth Whitening</a></li>
+        <li><a href="#">Emergency Care</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Quick Links</h4><ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="team.html">Our Team</a></li>
+        <li><a href="index.html#testimonials">Testimonials</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Contact</h4><ul>
+        <li><a href="#"># 1 - 2231 Long Lake Rd</a></li>
+        <li><a href="#">Sudbury, ON P3E 5H3</a></li>
+        <li><a href="tel:7055231004">705-523-1004</a></li>
+        <li><a href="mailto:info@longlakdental.ca">info@longlakdental.ca</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Long Lake Family Dentistry. All rights reserved.</span>
+      <span>Privacy Policy · Terms of Service</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
